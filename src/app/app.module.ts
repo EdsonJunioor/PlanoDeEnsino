@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +11,7 @@ import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
     AppComponent,
       LoginComponent,
       MenuComponent,
@@ -20,7 +21,8 @@ import { MenuComponent } from './Menu/Menu.component';
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
