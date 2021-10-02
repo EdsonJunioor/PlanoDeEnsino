@@ -9,6 +9,7 @@
   /* Standard syntax */
   background: linear-gradient(#f8933d, #ee4136, #a62c7b);
   padding: 0px;
+  width: 20%;
   min-height: 100vh;
 }
 .logo {
@@ -53,5 +54,5 @@ h5 {
   padding-left: 35px;
 }
 .main-content {
-  text-align: center;
+  width: 80%;
 }
