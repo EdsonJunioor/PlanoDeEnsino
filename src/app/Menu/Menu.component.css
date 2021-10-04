@@ -55,4 +55,6 @@ h5 {
 }
 .main-content {
   width: 80%;
+  text-align: justify;
+  background-color: lightgray;
 }
