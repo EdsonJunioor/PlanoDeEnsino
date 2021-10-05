@@ -1,2 +1,93 @@
-<!-- <app-Menu></app-Menu> -->
-<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-4 sidebar1">
+        <div class="logo">
+          <img
+            src="assets/imagens/logo-athon.png"
+            class="img-responsive center-block"
+            alt="Logo Athon"
+            height="85px"
+          />
+        </div>
+        <br/>
+        <div class="left-navigation">
+          <ul class="list">
+            <h5><strong>CADASTRO</strong></h5>
+            <li>
+              <a
+                class="nav-link active color-txt"
+                aria-current="page"
+                routerLink="/livro"
+                routerLinkActive="active"
+                >Livro</a>
+            </li>
+            <li>
+                <a
+                  class="nav-link active color-txt"
+                  aria-current="page"
+                  routerLink="/plano-de-ensino"
+                  routerLinkActive="active"
+                  >Plano de Ensino</a>
+            </li>
+            <li>
+                <a
+                  class="nav-link active color-txt"
+                  aria-current="page"
+                  routerLink="/sugestao"
+                  routerLinkActive="active"
+                  >Sugestão</a>
+            </li>
+            <li>
+              <a
+                class="nav-link active color-txt"
+                aria-current="page"
+                routerLink="/usuario"
+                routerLinkActive="active"
+                >Usuário</a>
+            </li>
+          </ul>
+  
+          <br/>
+  
+          <ul class="list">
+            <h5><strong>CONSULTA</strong></h5>
+            <li>
+                <a
+                  class="nav-link active color-txt"
+                  aria-current="page"
+                  routerLink=""
+                  routerLinkActive="active"
+                  >Livro</a>
+              </li>
+              <li>
+                  <a
+                    class="nav-link active color-txt"
+                    aria-current="page"
+                    routerLink=""
+                    routerLinkActive="active"
+                    >Plano de Ensino</a>
+              </li>
+              <li>
+                  <a
+                    class="nav-link active color-txt"
+                    aria-current="page"
+                    routerLink=""
+                    routerLinkActive="active"
+                    >Sugestão</a>
+              </li>
+              <li>
+                <a
+                  class="nav-link active color-txt"
+                  aria-current="page"
+                  routerLink=""
+                  routerLinkActive="active"
+                  >Usuário</a>
+              </li>
+          </ul>
+        </div>
+        </div>
+        <div class="col-md-8 col-sm-8 ">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

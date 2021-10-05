@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'livro', component: LivroComponent },
   { path: 'usuario', component: UsuarioComponent },
   { path: 'menu', component: MenuComponent },
+  { path: '', redirectTo: 'plano-de-ensino', pathMatch:'full'},
 ];
 
 @NgModule({
