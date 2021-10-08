@@ -9,6 +9,8 @@ import { PlanoEnsinoComponent } from './Cadastro/PlanoEnsino/PlanoEnsino.compone
 import { UsuarioComponent } from './Cadastro/Usuario/Usuario.component';
 import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
+import { CursoComponent } from './Cadastro/curso/curso.component';
+import { SugestaoComponent } from './Cadastro/sugestao/sugestao.component';
 
 @NgModule({
   declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
@@ -17,7 +19,9 @@ import { MenuComponent } from './Menu/Menu.component';
       MenuComponent,
       LivroComponent,
       PlanoEnsinoComponent,
-      UsuarioComponent
+      UsuarioComponent,
+      CursoComponent,
+      SugestaoComponent
    ],
   imports: [
     BrowserModule,

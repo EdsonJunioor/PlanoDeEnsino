@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CursoComponent } from './Cadastro/curso/curso.component';
 import { LivroComponent } from './Cadastro/Livro/Livro.component';
 import { PlanoEnsinoComponent } from './Cadastro/PlanoEnsino/PlanoEnsino.component';
+import { SugestaoComponent } from './Cadastro/sugestao/sugestao.component';
 import { UsuarioComponent } from './Cadastro/Usuario/Usuario.component';
 import { LoginComponent } from './Login/Login.component';
 import { MenuComponent } from './Menu/Menu.component';
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'livro', component: LivroComponent },
   { path: 'usuario', component: UsuarioComponent },
   { path: 'menu', component: MenuComponent },
-  { path: '', redirectTo: 'plano-de-ensino', pathMatch:'full'},
+  { path: 'curso', component: CursoComponent },
+  { path: 'sugestao', component: SugestaoComponent },
+  { path: '', redirectTo: 'plano-de-ensino', pathMatch: 'full' },
 ];
 
 @NgModule({
