@@ -8,15 +8,13 @@ import { LivroComponent } from './Cadastro/Livro/Livro.component';
 import { PlanoEnsinoComponent } from './Cadastro/PlanoEnsino/PlanoEnsino.component';
 import { UsuarioComponent } from './Cadastro/Usuario/Usuario.component';
 import { LoginComponent } from './Login/Login.component';
-import { MenuComponent } from './Menu/Menu.component';
-import { CursoComponent } from './Cadastro/curso/curso.component';
-import { SugestaoComponent } from './Cadastro/sugestao/sugestao.component';
+import { CursoComponent } from './Cadastro/Curso/curso.component';
+import { SugestaoComponent } from './Cadastro/Sugestao/sugestao.component';
 
 @NgModule({
   declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
     AppComponent,
       LoginComponent,
-      MenuComponent,
       LivroComponent,
       PlanoEnsinoComponent,
       UsuarioComponent,
