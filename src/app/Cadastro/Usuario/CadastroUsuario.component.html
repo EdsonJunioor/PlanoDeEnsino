@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="offset-2 center">
+            <form>
+                <div class="form-group">
+                    <div class="text-center mt-30">
+                        <h1>Cadastrar Usuário</h1>
+                    </div>
+                    <div class="mt-10">
+                        <h6>Usuário</h6> <!-- se refere a DS_LIVRO-->
+                        <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário">
+                        <div class="col-md-3">
+                            <h6 class="mt-8">Login</h6>
+                            <input type="text" class="form-control form-control-sm" id="login" placeholder="Credencial para acessar o sistema">
+                            <h6 class="mt-8">Senha</h6>
+                            <input type="password" class="form-control form-control-sm" id="senha" placeholder="Credencial para acessar o sistema">
+                            <input type="checkbox" class="mt-8" onclick="mostrarSenha()">
+                            <label for="senha">&nbsp;Exibir Senha</label>
+                        </div>
+                        <h6 class="mt-8">Sexo</h6>
+                        <input type="radio" name="sexo" placeholder="" value="Masculino">
+                        <label for="Masculino">&nbsp;Masculino</label>
+                        &nbsp;
+                        <input type="radio" name="sexo" placeholder="" value="Feminino">
+                        <label for="Feminino">&nbsp;Feminino</label>
+                        <div class="col-md-2">
+                            <h6 class="mt-8">Data de Nascimento</h6>
+                            <input type="date" class="form-control form-control-sm">
+                        </div>
+                        <h6 class="mt-8">Tipo de Usuário</h6>
+                        <input type="radio" name="usuario" placeholder="" value="Professor">
+                        <label for="Professor">&nbsp;Professor</label>
+                        &nbsp;
+                        <input type="radio" name="usuario" placeholder="" value="ProfessorNDE">
+                        <label for="ProfessorNDE">&nbsp;Professor NDE</label>
+                        <div class="col-md-2">
+                            <h6 class="mt-8">Status</h6>
+                            <input type="radio" name="status" placeholder="" value="Ativo">
+                            <label for="Ativo">&nbsp;Ativo</label>
+                            &nbsp;
+                            <input type="radio" name="status" placeholder="" value="Inativo">
+                            <label for="Inativo">&nbsp;Inativo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-20">
+                    <div class="col-6 col-md-1">
+                     <button type="button" class="btn btn-secondary">Editar</button>
+                    </div>
+                    <div class="col-6 col-md-1">
+                     <button type="button" class="btn btn-success">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

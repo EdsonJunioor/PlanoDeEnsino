@@ -19,6 +19,17 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"
     ></script>
+    
+    <script>
+      function mostrarSenha() {
+        var x = document.getElementById("senha");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+      </script>
     <app-root></app-root>
   </body>
 </html>
