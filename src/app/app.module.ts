@@ -4,20 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LivroComponent } from './Cadastro/Livro/Livro.component';
-import { PlanoEnsinoComponent } from './Cadastro/PlanoEnsino/PlanoEnsino.component';
-import { UsuarioComponent } from './Cadastro/Usuario/Usuario.component';
+import { CadastroLivroComponent } from './Cadastro/Livro/CadastroLivro.component';
+import { CadastroPlanoEnsinoComponent } from './Cadastro/PlanoEnsino/CadastroPlanoEnsino.component';
+import { CadastroUsuarioComponent } from './Cadastro/Usuario/CadastroUsuario.component';
 import { LoginComponent } from './Login/Login.component';
-import { MenuComponent } from './Menu/Menu.component';
+import { CadastroCursoComponent } from './Cadastro/Curso/CadastroCurso.component';
+import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.component';
 
 @NgModule({
   declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
     AppComponent,
       LoginComponent,
-      MenuComponent,
-      LivroComponent,
-      PlanoEnsinoComponent,
-      UsuarioComponent
+      CadastroLivroComponent,
+      CadastroPlanoEnsinoComponent,
+      CadastroUsuarioComponent,
+      CadastroCursoComponent,
+      CadastroSugestaoComponent
    ],
   imports: [
     BrowserModule,
