@@ -8,15 +8,15 @@
                     </div>
                     <div class="mt-10">
                         <h6>Curso</h6> <!-- se refere a DS_LIVRO-->
-                        <input class="form-control form-control-sm" type="text" placeholder="Nome do curso">
+                        <input class="form-control form-control-sm" type="text" placeholder="Nome do curso" [(ngModel)]="curso.DsCurso" name="nomeCurso">
                         <h6 class="mt-8">Tipo de Graduação</h6>
-                        <input type="radio" name="tipo" value="Bacharelado" checked>
+                        <input type="radio" name="tipo" [(ngModel)]="curso.TpGraduacao" value="Bacharelado" checked>
                         <label for="Bacharelado">&nbsp;Bacharelado</label>
                         &nbsp;
-                        <input type="radio" name="tipo" placeholder="" value="Licenciatura">
+                        <input type="radio" name="tipo" [(ngModel)]="curso.TpGraduacao" value="Licenciatura">
                         <label for="Licenciatura">&nbsp;Licenciatura</label>
                         &nbsp;
-                        <input type="radio" name="tipo" placeholder="" value="Tecnologo">
+                        <input type="radio" name="tipo" [(ngModel)]="curso.TpGraduacao" value="Tecnologo">
                         <label for="Tecnologo">&nbsp;Tecnólogo</label>
                     </div>
                 </div>
