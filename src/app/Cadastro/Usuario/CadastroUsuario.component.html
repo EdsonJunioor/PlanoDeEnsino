@@ -7,51 +7,62 @@
                         <h1>Cadastrar Usuário</h1>
                     </div>
                     <div class="mt-10">
-                        <h6>Usuário</h6> <!-- se refere a DS_LIVRO-->
-                        <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário">
+                        <h6>Usuário</h6>
+                        <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário" [(ngModel)]="usuario.nome" name="nomeUsuario">
                         <div class="col-md-3">
                             <h6 class="mt-8">Login</h6>
-                            <input type="text" class="form-control form-control-sm" id="login" placeholder="Credencial para acessar o sistema">
+                            <input type="text" class="form-control form-control-sm" name="login" [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
                             <h6 class="mt-8">Senha</h6>
-                            <input type="password" class="form-control form-control-sm" id="senha" placeholder="Credencial para acessar o sistema">
+                            <input type="password" class="form-control form-control-sm" id="senha" [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
                             <input type="checkbox" class="mt-8" onclick="mostrarSenha()">
                             <label for="senha">&nbsp;Exibir Senha</label>
                         </div>
-                        <h6 class="mt-8">Sexo</h6>
-                        <input type="radio" name="sexo" placeholder="" value="Masculino">
-                        <label for="Masculino">&nbsp;Masculino</label>
-                        &nbsp;
-                        <input type="radio" name="sexo" placeholder="" value="Feminino">
-                        <label for="Feminino">&nbsp;Feminino</label>
-                        <div class="col-md-2">
-                            <h6 class="mt-8">Data de Nascimento</h6>
-                            <input type="date" class="form-control form-control-sm">
-                        </div>
                         <h6 class="mt-8">Tipo de Usuário</h6>
-                        <input type="radio" name="usuario" placeholder="" value="Professor">
+                        <input type="radio" name="tipoUsuarioProfessor" placeholder="" [(ngModel)]="usuario.tpUsuario" value="Professor">
                         <label for="Professor">&nbsp;Professor</label>
                         &nbsp;
-                        <input type="radio" name="usuario" placeholder="" value="ProfessorNDE">
+                        <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario" value="ProfessorNDE">
                         <label for="ProfessorNDE">&nbsp;Professor NDE</label>
                         <div class="col-md-2">
                             <h6 class="mt-8">Status</h6>
-                            <input type="radio" name="status" placeholder="" value="Ativo">
+                            <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Ativo">
                             <label for="Ativo">&nbsp;Ativo</label>
                             &nbsp;
-                            <input type="radio" name="status" placeholder="" value="Inativo">
+                            <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Inativo">
                             <label for="Inativo">&nbsp;Inativo</label>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-20">
                     <div class="col-6 col-md-1">
-                     <button type="button" class="btn btn-secondary">Editar</button>
+                     <button type="button" class="btn btn-secondary" (click)="salvarUsuario()">Editar</button>
                     </div>
                     <div class="col-6 col-md-1">
                      <button type="button" class="btn btn-success">Salvar</button>
                     </div>
                 </div>
             </form>
+            <div class="mt-20">
+                <h3>Lista de Usuários</h3>
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Login</th>
+                      <th scope="col">Tipo Usuário</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="cursor: pointer;" *ngFor="let usuario of usuarios">
+                      <td>{{usuario.nome}}</td>
+                      <td>{{usuario.login}}</td>
+                      <td>{{usuario.tpUsuario}}</td>
+                      <td>{{usuario.status}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
