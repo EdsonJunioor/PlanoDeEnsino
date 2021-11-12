@@ -12,6 +12,11 @@ import { CadastroUsuarioComponent } from './Cadastro/Usuario/CadastroUsuario.com
 import { LoginComponent } from './Login/Login.component';
 import { CadastroCursoComponent } from './Cadastro/Curso/CadastroCurso.component';
 import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.component';
+import { ConsultaCursoComponent } from './Consulta/Curso/ConsultaCurso.component';
+import { ConsultaLivroComponent } from './Consulta/Livro/ConsultaLivro.component';
+import { ConsultaSugestaoComponent } from './Consulta/Sugestao/ConsultaSugestao.component';
+import { ConsultaPlanoEnsinoComponent } from './Consulta/PlanoEnsino/ConsultaPlanoEnsino.component';
+
 
 @NgModule({
   declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
@@ -21,10 +26,14 @@ import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.
       CadastroPlanoEnsinoComponent,
       CadastroUsuarioComponent,
       CadastroCursoComponent,
-      CadastroSugestaoComponent
+      CadastroSugestaoComponent,
+      ConsultaCursoComponent,
+      ConsultaLivroComponent,
+      ConsultaSugestaoComponent,
+      ConsultaPlanoEnsinoComponent
    ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

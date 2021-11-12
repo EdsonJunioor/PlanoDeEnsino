@@ -37,12 +37,24 @@ export class CadastroUsuarioComponent implements OnInit {
     );
   }
 
-
   salvarUsuario(){
     this.usuarioService.post(this.usuario).subscribe(resposta => {
       this.usuario = new UsuarioModel;
       this.carregarUsuarios();
     });
   }
+
+  editarUsuario(){
+    var id = this.usuario.cdUsuario;
+    this.usuarioService.put(id, this.usuario).subscribe( resposta => {
+      this.carregarUsuarios();
+    });
+    this.limparCampos();
+  }
+
+  limparCampos(){
+    this.usuario = new UsuarioModel;
+  }
+
 
 }

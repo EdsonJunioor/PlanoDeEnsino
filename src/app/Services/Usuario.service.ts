@@ -21,4 +21,15 @@ export class UsuarioService {
     return this.http.get<UsuarioModel[]>(`${this.url}`);
   }
 
+  getUsuarioById(id: number): Observable<UsuarioModel>{
+    return this.http.get<UsuarioModel>(`${this.url}/${id}`);
+  }
+
+  getUsuarioByNome(nome: string): Observable<UsuarioModel[]>{
+    return this.http.get<UsuarioModel[]>(`${this.url}/${nome}`);
+  }
+
+  put(id: number, usuario: UsuarioModel): Observable<any>{
+    return this.http.put(`${this.url}/EditarUsuario/${id}`, usuario);
+  }
 }
