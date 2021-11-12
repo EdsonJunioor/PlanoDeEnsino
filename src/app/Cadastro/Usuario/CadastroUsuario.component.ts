@@ -5,10 +5,9 @@ import { UsuarioService } from './../../Services/Usuario.service';
 @Component({
   selector: 'app-CadastroUsuario',
   templateUrl: './CadastroUsuario.component.html',
-  styleUrls: ['./CadastroUsuario.component.css']
+  styleUrls: ['./CadastroUsuario.component.css'],
 })
 export class CadastroUsuarioComponent implements OnInit {
-
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
@@ -16,7 +15,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   public usuarios: UsuarioModel[] = [];
-  public usuario = new UsuarioModel;
+  public usuario = new UsuarioModel();
 
   // usuarios = [
   //   { nome:'Edson Junior', login:'edson.junior@athon.com', tipoUsuario: 'Professor', status: 'Ativo' },
@@ -25,9 +24,9 @@ export class CadastroUsuarioComponent implements OnInit {
   //   { nome:'Gustavo Clareti', login:'gustavo.clareti@athon.com', tipoUsuario: 'Professor', status: 'Ativo' }
   // ];
 
-  carregarUsuarios(){
+  carregarUsuarios() {
     this.usuarioService.getAll().subscribe(
-      (listaUsuarios: UsuarioModel[]) =>{
+      (listaUsuarios: UsuarioModel[]) => {
         this.usuarios = listaUsuarios;
         return this.usuarios;
       },
@@ -37,12 +36,14 @@ export class CadastroUsuarioComponent implements OnInit {
     );
   }
 
-
-  salvarUsuario(){
-    this.usuarioService.post(this.usuario).subscribe(resposta => {
-      this.usuario = new UsuarioModel;
-      this.carregarUsuarios();
-    });
+  salvarUsuario() {
+    this.usuarioService
+      .post(this.usuario)
+      .subscribe(
+        (resposta) => {
+          this.usuario = new UsuarioModel();
+          this.carregarUsuarios();
+        }
+      );
   }
-
 }
