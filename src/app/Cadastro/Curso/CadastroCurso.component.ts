@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoModel } from 'src/app/Models/CursoModel';
+import { CursoModel } from './../../Models/CursoModel';
 import { CursoService } from './../../Services/Curso.service';
 
 @Component({
@@ -25,17 +25,15 @@ export class CadastroCursoComponent implements OnInit {
         return this.cursos;
       },
       (erro: any) => {
-        console.error('Não foi possível carregar os usuários.');
+        console.error('Não foi possível carregar os cursos.');
       }
     );
   }
 
-
-  salvarUsuario(){
+  salvarCurso(){
     this.cursoService.post(this.curso).subscribe(resposta => {
       this.curso = new CursoModel;
       this.carregarCursos();
     });
   }
-
 }

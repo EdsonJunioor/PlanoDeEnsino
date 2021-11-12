@@ -25,10 +25,27 @@
                      <button type="button" class="btn btn-secondary">Editar</button>
                     </div>
                     <div class="col-6 col-md-1">
-                     <button type="button" class="btn btn-success">Salvar</button>
+                     <button type="button" class="btn btn-success" (click)="salvarCurso()">Salvar</button>
                     </div>
                 </div>
             </form>
+            <div class="mt-20">
+                <h3>Lista de Cursos</h3>
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Curso</th>
+                      <th scope="col">Tipo de Graduação</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="cursor: pointer;" *ngFor="let curso of cursos">
+                      <td>{{curso.DsCurso}}</td>
+                      <td>{{curso.TpGraduacao}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
