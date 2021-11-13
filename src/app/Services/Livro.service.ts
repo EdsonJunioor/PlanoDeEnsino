@@ -10,7 +10,7 @@ import { LivroModel } from '../Models/LivroModel';
 export class LivroService {
   url = environment.domain + 'livro';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   post(livro: LivroModel) {
     return this.http.post(`${this.url}`, livro);
