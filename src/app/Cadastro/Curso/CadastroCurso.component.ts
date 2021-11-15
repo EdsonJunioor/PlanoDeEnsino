@@ -18,6 +18,14 @@ export class CadastroCursoComponent implements OnInit {
   public cursos: CursoModel[] = [];
   public curso = new CursoModel;
 
+  salvarCurso() {
+    this.cursoService.post(this.curso).subscribe((resposta) => {
+      this.curso = new CursoModel();
+    }
+    );
+    this.carregarCursos();
+  }
+
   carregarCursos(){
     this.cursoService.getAll().subscribe(
       (listaCursos: CursoModel[]) =>{
@@ -28,12 +36,5 @@ export class CadastroCursoComponent implements OnInit {
         console.error('Não foi possível carregar os cursos.');
       }
     );
-  }
-
-  salvarCurso(){
-    this.cursoService.post(this.curso).subscribe(resposta => {
-      this.curso = new CursoModel;
-      this.carregarCursos();
-    });
   }
 }
