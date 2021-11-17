@@ -11,29 +11,68 @@ export class CadastroLivroComponent implements OnInit {
 
   constructor(private livroService: LivroService) { }
 
+  public livros: LivroModel[] = [];
+  public livro = new LivroModel();
+  public mostrarLista: boolean = true;
+
   ngOnInit() {
     this.carregarLivros();
   }
 
-  public livros: LivroModel[] = [];
-  public livro = new LivroModel();
-
-  salvarLivro() {
-    this.livroService.post(this.livro).subscribe((resposta) => {
-      this.livro = new LivroModel();
+  salvar() {
+    if (this.livro) {
+      this.editarLivro();
+    } else {
+      this.cadastrarLivro();
     }
+  }
+
+  cadastrarLivro() {
+    this.livroService.post(this.livro).subscribe((resposta) => {
+      if (resposta) {
+        this.livro = new LivroModel();
+        alert('Livro cadastrado com sucesso!');
+        // this.livro = {}        //Esvaziar campos da tela
+      } else {
+        alert('Não foi possivel salvar o livro.');
+      }
+    },
+      (erro) => {
+        alert('Erro interno do sistema');   //Por que esta caindo nesta condição?
+      }
     );
     this.carregarLivros();
   }
 
+  editarLivro() {
+    this.livroService.put(this.livro).subscribe((resposta) => {
+      if (resposta) {
+        this.livro = new LivroModel();
+        alert('Livro editado com sucesso!');
+        // this.livro = {}        //Esvaziar campos da tela
+      } else {
+        alert('Não foi possivel editar o livro.');
+      }
+    },
+      (erro) => {
+        alert('Erro interno do sistema');   //Por que esta caindo nesta condição?
+      }
+    );
+    this.carregarLivros();
+  }
+
+  abrirDetalhes(livro: LivroModel) {
+    this.mostrarLista = true;
+    this.livro = livro;
+  }
+
   carregarLivros() {
-    this.livroService.getAll().subscribe(
-      (listaLivros: LivroModel[]) => {
-        this.livros = listaLivros;
-        return this.livros;
-      },
+    this.livroService.getAll().subscribe((listaLivros: LivroModel[]) => {
+      this.livros = listaLivros;
+      return this.livros;
+    },
       (erro: any) => {
-        console.error('Não foi possivel carregar os livros.');
+        alert('Erro interno do sistema');
       }
     );
   }
