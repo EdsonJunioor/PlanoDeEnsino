@@ -8,25 +8,48 @@ import { CursoService } from './../../Services/Curso.service';
   styleUrls: ['./CadastroCurso.component.css']
 })
 export class CadastroCursoComponent implements OnInit {
-
+  CursoModel: any;
   constructor(private cursoService: CursoService) { }
 
   ngOnInit() {
-    this.carregarCursos();
+    this.getCursos();
   }
 
   public cursos: CursoModel[] = [];
   public curso = new CursoModel;
+  public mostrarListaCurso: boolean = true;
+  public dadosCursos = [];
+  pagCurso: number = 1;
+  contadorCurso: number = 5;
+  paginaAtualCurso: number = 1;
 
-  salvarCurso() {
+  saveCurso() {
+    if(this.curso.cdCurso) {
+      this.putCurso();
+    } else {
+      this.postCurso();
+    }
+  }
+
+  postCurso() {
     this.cursoService.post(this.curso).subscribe((resposta) => {
       this.curso = new CursoModel();
     }
     );
-    this.carregarCursos();
+    alert('Curso cadastrado com sucesso!');
+    this.getCursos();
   }
 
-  carregarCursos(){
+  putCurso() {
+    this.cursoService.put(this.curso).subscribe((resposta) => {
+      this.curso = new CursoModel();
+    }
+    );
+    alert('Curso atualizado com sucesso!');
+    this.getCursos();
+  }
+
+  getCursos(){
     this.cursoService.getAll().subscribe(
       (listaCursos: CursoModel[]) =>{
         this.cursos = listaCursos;
@@ -36,5 +59,10 @@ export class CadastroCursoComponent implements OnInit {
         console.error('Não foi possível carregar os cursos.');
       }
     );
+  }
+
+  abrirDetalhesCurso(curso: CursoModel) {
+    this.mostrarListaCurso = true;
+    this.curso = curso;
   }
 }

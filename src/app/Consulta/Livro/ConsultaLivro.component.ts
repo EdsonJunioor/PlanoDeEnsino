@@ -8,17 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ConsultaLivro.component.css'],
 })
 export class ConsultaLivroComponent implements OnInit {
-
+  LivroModel: any;
   constructor(private livroService: LivroService) { }
 
   ngOnInit() {
-    this.carregarLivros();
+    this.getLivros();
   }
 
   public livros: LivroModel[] = [];
-  public livro = new LivroModel();
 
-  carregarLivros() {
+  getLivros() {
     this.livroService.getAll().subscribe(
       (listaLivros: LivroModel[]) => {
         this.livros = listaLivros;

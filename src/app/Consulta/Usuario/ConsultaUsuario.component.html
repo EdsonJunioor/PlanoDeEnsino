@@ -1,42 +1,38 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="offset-2 center">
-      <form>
-        <div class="form-group">
-          <div class="text-center mt-30">
-            <h1>Consultar Usuário</h1>
-          </div>
-          <div class="mt-10">
-            <h6>Nome do usuário</h6>
-            <!-- se refere a DS_LIVRO-->
-          </div>
-          <div class="row">
-            <div class="col-md-8">
-              <input
-                class="form-control form-control-sm"
-                type="text"
-                placeholder="Nome do usuário"
-              />
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-success btn-sm">
-                Buscar
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9 mt-30">
-              <textarea
-                readonly
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="2"
-                placeholder="Usuário"
-              ></textarea>
-            </div>
-          </div>
+      <div class="mt-20">
+        <div class="text-center mt-30">
+          <h1>Consultar Usuário</h1>
         </div>
-      </form>
+        <form class="navbar-form navbar-left mt-20" role="searchbox">
+          <div class="form-group col-12 col-md-12">
+              <input type="text" class="form-control" placeholder="Buscar">
+          </div>
+        </form>
+        <div class="mt-20">
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Login</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="cursor: pointer;" *ngFor="let usuario of usuarios">
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.login}}</td>
+                <td>******************</td>
+                <td>{{usuario.tpUsuario}}</td>
+                <td>{{usuario.status}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

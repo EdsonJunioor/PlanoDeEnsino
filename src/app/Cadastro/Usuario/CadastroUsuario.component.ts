@@ -8,25 +8,50 @@ import { UsuarioService } from './../../Services/Usuario.service';
   styleUrls: ['./CadastroUsuario.component.css'],
 })
 export class CadastroUsuarioComponent implements OnInit {
+  UsuarioModel: any;
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.carregarUsuarios();
+    this.getUsuarios();
   }
 
   public usuarios: UsuarioModel[] = [];
-  public usuario = new UsuarioModel();
+  public usuario = new UsuarioModel;
+  public mostrarListaUsuario: boolean = true;
+  public dadosUsuario = [];
+  pagUsuario: number = 1;
+  contadorUsuario: number = 5;
+  paginaAtualUsuario: number = 1;
 
-  // usuarios = [
-  //   { nome:'Edson Junior', login:'edson.junior@athon.com', tipoUsuario: 'Professor', status: 'Ativo' },
-  //   { nome:'Felipe Gallonetti', login:'felipe.gallonetti@athon.com', tipoUsuario: 'Professor', status: 'Ativo' },
-  //   { nome:'Gustavo Gama', login:'gustavo.gama@athon.com', tipoUsuario: 'Professor', status: 'Ativo' },
-  //   { nome:'Gustavo Clareti', login:'gustavo.clareti@athon.com', tipoUsuario: 'Professor', status: 'Ativo' }
-  // ];
+  saveUsuario() {
+    if(this.usuario.cdUsuario) {
+      this.putUsuario();
+    } else {
+      this.postUsuario();
+    }
+  }
 
-  carregarUsuarios() {
+  postUsuario() {
+    this.usuarioService.post(this.usuario).subscribe((resposta) => {
+      this.usuario = new UsuarioModel();
+    }
+    );
+    alert('Usuário cadastrado com sucesso!');
+    this.getUsuarios();
+  }
+
+  putUsuario() {
+    this.usuarioService.put(this.usuario).subscribe((resposta) => {
+      this.usuario = new UsuarioModel();
+    }
+    );
+    alert('Usuário atualizado com sucesso!');
+    this.getUsuarios();
+  }
+
+  getUsuarios(){
     this.usuarioService.getAll().subscribe(
-      (listaUsuarios: UsuarioModel[]) => {
+      (listaUsuarios: UsuarioModel[]) =>{
         this.usuarios = listaUsuarios;
         return this.usuarios;
       },
@@ -36,14 +61,8 @@ export class CadastroUsuarioComponent implements OnInit {
     );
   }
 
-  salvarUsuario() {
-    this.usuarioService
-      .post(this.usuario)
-      .subscribe(
-        (resposta) => {
-          this.usuario = new UsuarioModel();
-          this.carregarUsuarios();
-        }
-      );
+  abrirDetalhesUsuario(usuario: UsuarioModel) {
+    this.mostrarListaUsuario = true;
+    this.usuario = usuario;
   }
 }

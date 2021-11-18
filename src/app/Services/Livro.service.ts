@@ -16,15 +16,11 @@ export class LivroService {
     return this.http.post(`${this.url}`, livro);
   }
 
-  put(livro: LivroModel) {
-    return this.http.put(`${this.url}/${livro.cdLivro}`, livro); //Mostrar pro Edson
-  }
-
   getAll(): Observable<LivroModel[]> {
     return this.http.get<LivroModel[]>(`${this.url}`);
   }
 
-  getByID(cd: number) {
-    return this.http.get(`${this.url}/${cd}`);
+  put(livro: LivroModel) {
+    return this.http.put(`${this.url}`, livro);
   }
 }
