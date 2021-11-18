@@ -10,21 +10,21 @@
                         <h6>Usuário</h6>
                         <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário" [(ngModel)]="usuario.nome" name="nomeUsuario">
                         <div class="col-md-3">
-                            <h6 class="mt-8">Login</h6>
+                            <h6 class="mt-10">Login</h6>
                             <input type="text" class="form-control form-control-sm" name="login" [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
-                            <h6 class="mt-8">Senha</h6>
-                            <input type="password" class="form-control form-control-sm" id="senha" [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
+                            <h6 class="mt-10">Senha</h6>
+                            <input type="password" class="form-control form-control-sm" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
                             <input type="checkbox" class="mt-8" onclick="mostrarSenha()">
                             <label for="senha">&nbsp;Exibir Senha</label>
                         </div>
-                        <h6 class="mt-8">Tipo de Usuário</h6>
+                        <h6 class="mt-10">Tipo de Usuário</h6>
                         <input type="radio" name="tipoUsuarioProfessor" placeholder="" [(ngModel)]="usuario.tpUsuario" value="Professor">
                         <label for="Professor">&nbsp;Professor</label>
                         &nbsp;
                         <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario" value="ProfessorNDE">
                         <label for="ProfessorNDE">&nbsp;Professor NDE</label>
                         <div class="col-md-2">
-                            <h6 class="mt-8">Status</h6>
+                            <h6 class="mt-10">Status</h6>
                             <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Ativo">
                             <label for="Ativo">&nbsp;Ativo</label>
                             &nbsp;
@@ -34,35 +34,47 @@
                     </div>
                 </div>
                 <div class="row mt-20">
-                    <div class="col-6 col-md-1">
-                     <button type="button" class="btn btn-secondary">Editar</button>
+                    <div class="col-4 col-md-1">
+                        <input class="btn btn-dark" type="reset" value="Limpar">
                     </div>
-                    <div class="col-6 col-md-1">
-                     <button type="button" class="btn btn-success" (click)="salvarUsuario()">Salvar</button>
+                    <div class="col-4 col-md-1">
+                        <button type="button" class="btn btn-success" (click)="saveUsuario()">Salvar</button>
+                    </div>
+                    <div class="col-4 col-md-10">
+                        <button class="btn btn-primary" (click)="mostrarListaUsuario = !mostrarListaUsuario">
+                            {{mostrarListaUsuario ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-20" *ngIf="!mostrarListaUsuario">
+                    <h3>Lista de Usuários ({{usuarios.length}})</h3>
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Ações</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Login</th>
+                            <th scope="col">Senha</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
+                            <td><button class="btn btn-primary" (click)="abrirDetalhesUsuario(usuario)">Editar</button></td>
+                            <td>{{usuario.nome}}</td>
+                            <td>{{usuario.login}}</td>
+                            <td>******************</td>
+                            <td>{{usuario.tpUsuario}}</td>
+                            <td>{{usuario.status}}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <pagination-controls (pageChange)="pagUsuario = $event"></pagination-controls>
                     </div>
                 </div>
             </form>
-            <div class="mt-20">
-                <h3>Lista de Usuários</h3>
-                <table class="table table-hover">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">Nome</th>
-                      <th scope="col">Login</th>
-                      <th scope="col">Tipo Usuário</th>
-                      <th scope="col">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style="cursor: pointer;" *ngFor="let usuario of usuarios">
-                      <td>{{usuario.nome}}</td>
-                      <td>{{usuario.login}}</td>
-                      <td>{{usuario.tpUsuario}}</td>
-                      <td>{{usuario.status}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>

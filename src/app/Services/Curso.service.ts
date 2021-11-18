@@ -21,4 +21,7 @@ export class CursoService {
     return this.http.get<CursoModel[]>(`${this.url}`);
   }
 
+  put(curso: CursoModel){
+    return this.http.put(`${this.url}`, curso);
+  }
 }

@@ -19,4 +19,8 @@ export class LivroService {
   getAll(): Observable<LivroModel[]> {
     return this.http.get<LivroModel[]>(`${this.url}`);
   }
+
+  put(livro: LivroModel) {
+    return this.http.put(`${this.url}`, livro);
+  }
 }

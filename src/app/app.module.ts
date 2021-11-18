@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroLivroComponent } from './Cadastro/Livro/CadastroLivro.component';
@@ -12,6 +13,9 @@ import { CadastroUsuarioComponent } from './Cadastro/Usuario/CadastroUsuario.com
 import { LoginComponent } from './Login/Login.component';
 import { CadastroCursoComponent } from './Cadastro/Curso/CadastroCurso.component';
 import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.component';
+import { ConsultaLivroComponent } from './Consulta/Livro/ConsultaLivro.component';
+import { ConsultaCursoComponent } from './Consulta/Curso/ConsultaCurso.component';
+import { ConsultaUsuarioComponent } from './Consulta/Usuario/ConsultaUsuario.component';
 
 @NgModule({
   declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
@@ -21,10 +25,14 @@ import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.
       CadastroPlanoEnsinoComponent,
       CadastroUsuarioComponent,
       CadastroCursoComponent,
-      CadastroSugestaoComponent
+      CadastroSugestaoComponent,
+      ConsultaLivroComponent,
+      ConsultaCursoComponent,
+      ConsultaUsuarioComponent
    ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

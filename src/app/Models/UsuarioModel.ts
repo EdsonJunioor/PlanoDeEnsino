@@ -1,5 +1,5 @@
 export class UsuarioModel {
-    CdUsuario!: number;
+    cdUsuario!: number;
     nome!:   string;
     login!:  string;
     senha!:  string;
