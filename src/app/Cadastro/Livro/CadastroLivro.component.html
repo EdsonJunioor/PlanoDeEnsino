@@ -1,54 +1,60 @@
 <div class="container">
   <div class="row justify-content-md-center">
-      <div class="offset-2 center">
-          <form>
-              <div class="form-group">
-                  <div class="text-center mt-30">
-                      <h1>Cadastrar Livro</h1>
-                  </div>
-                  <div class="mt-10">
-                      <h6>Livro</h6>
-                      <input class="form-control form-control-sm" type="text" placeholder="Nome do livro" [(ngModel)]="livro.dsLivro" name="Livro">
-                      <h6>Editora</h6>
-                      <input class="form-control form-control-sm" type="text" placeholder="Editora do livro" [(ngModel)]="livro.editora" name="Editora">
-                      <h6>Ano</h6>
-                      <input class="form-control form-control-sm" type="number" placeholder="Ano de lançamento" [(ngModel)]="livro.ano" name="Ano">
-                  </div>
-              </div>
+    <div class="offset-2 center">
+      <form>
+        <div class="form-group">
+          <div class="text-center mt-30">
+            <h1>Cadastrar Livro</h1>
+          </div>
+          <div class="mt-10">
+            <h6>Livro</h6>
+            <input class="form-control form-control-sm" type="text" placeholder="Nome do livro"
+              [(ngModel)]="livro.dsLivro" name="Livro">
+            <h6>Editora</h6>
+            <input class="form-control form-control-sm" type="text" placeholder="Editora do livro"
+              [(ngModel)]="livro.editora" name="Editora">
+            <h6>Ano</h6>
+            <input class="form-control form-control-sm" type="number" placeholder="Ano de lançamento"
+              [(ngModel)]="livro.ano" name="Ano">
+          </div>
+        </div>
 
-              <div class="row mt-20">
-                  <div class="col-6 col-md-1">
-                   <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
-                  </div>
-                  <div class="col-6 col-md-2">
-                    <button class="btn btn-primary" (click)="mostrarLista = !mostrarLista">
-                      {{mostrarLista ? 'Mostrar Lista' : 'Ocultar Lista'}}
-                    </button>
-                  </div>
-              </div>
-          </form>
+        <div class="row mt-20">
+          <div class="col-6 col-md-1">
+            <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+          </div>
+          <div class="col-6 col-md-2">
+            <button class="btn btn-primary" (click)="mostrarLista = !mostrarLista">
+              {{mostrarLista ? 'Mostrar Lista' : 'Ocultar Lista'}}
+            </button>
+          </div>
+        </div>
+      </form>
 
-          <div class="mt-20" *ngIf="!mostrarLista">
-            <h3>Lista de Livros ({{livros.length}})</h3>
-            <table class="table table-hover">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">Ações</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Editora</th>
-                  <th scope="col">Ano</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="cursor: pointer;" *ngFor="let livro of livros">
-                  <td><button class="btn btn-primary" (click)="abrirDetalhes(livro)">Editar</button></td>
-                  <td>{{livro.dsLivro}}</td>
-                  <td>{{livro.editora}}</td>
-                  <td>{{livro.ano}}</td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="mt-20" *ngIf="!mostrarLista">
+        <h3>Lista de Livros ({{livros.length}})</h3>
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Ações</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Editora</th>
+              <th scope="col">Ano</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let livro of livros | paginate: { itemsPerPage: contador, currentPage: pag }">
+              <td><button class="btn btn-primary" (click)="abrirDetalhes(livro)">Editar</button></td>
+              <td>{{livro.dsLivro}}</td>
+              <td>{{livro.editora}}</td>
+              <td>{{livro.ano}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-right">
+          <pagination-controls (pageChange)="pag = $event"></pagination-controls>
         </div>
       </div>
+    </div>
   </div>
 </div>

@@ -8,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./CadastroLivro.component.css'],
 })
 export class CadastroLivroComponent implements OnInit {
+  LivroModel: any;
 
   constructor(private livroService: LivroService) { }
 
   public livros: LivroModel[] = [];
   public livro = new LivroModel();
   public mostrarLista: boolean = true;
+
+  public dadosAlunos = [];
+  pag: number = 1;
+  contador: number = 5;
+  paginaAtual: number = 1;
 
   ngOnInit() {
     this.carregarLivros();
@@ -47,7 +53,6 @@ export class CadastroLivroComponent implements OnInit {
   editarLivro() {
     this.livroService.put(this.livro).subscribe((resposta) => {
       if (resposta) {
-        this.livro = new LivroModel();
         alert('Livro editado com sucesso!');
         // this.livro = {}        //Esvaziar campos da tela
       } else {
@@ -60,6 +65,22 @@ export class CadastroLivroComponent implements OnInit {
     );
     this.carregarLivros();
   }
+
+  // editarLivro() {
+  //   var id = this.livro.cdLivro;
+  //   var livro = this.livroService.getByID(id);
+  //   if (livro) {
+  //     this.livroService.put(this.livro).subscribe(resposta => {
+  //       console.log(resposta);
+  //       alert("Livro editado");
+  //       this.carregarLivros();
+  //     });
+  //   }
+  //   else {
+  //     console.log('Erroooouu');
+  //   }
+  //   // this.limparCampo();
+  // }
 
   abrirDetalhes(livro: LivroModel) {
     this.mostrarLista = true;

@@ -12,24 +12,26 @@ import { CadastroUsuarioComponent } from './Cadastro/Usuario/CadastroUsuario.com
 import { LoginComponent } from './Login/Login.component';
 import { CadastroCursoComponent } from './Cadastro/Curso/CadastroCurso.component';
 import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
     AppComponent,
-      LoginComponent,
-      CadastroLivroComponent,
-      CadastroPlanoEnsinoComponent,
-      CadastroUsuarioComponent,
-      CadastroCursoComponent,
-      CadastroSugestaoComponent
-   ],
+    LoginComponent,
+    CadastroLivroComponent,
+    CadastroPlanoEnsinoComponent,
+    CadastroUsuarioComponent,
+    CadastroCursoComponent,
+    CadastroSugestaoComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
