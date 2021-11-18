@@ -7,29 +7,51 @@
                         <h1>Cadastrar Usuário</h1>
                     </div>
                     <div class="mt-10">
-                        <h6>Usuário</h6>
-                        <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário" [(ngModel)]="usuario.nome" name="nomeUsuario">
-                        <div class="col-md-3">
-                            <h6 class="mt-10">Login</h6>
-                            <input type="text" class="form-control form-control-sm" name="login" [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
-                            <h6 class="mt-10">Senha</h6>
-                            <input type="password" class="form-control form-control-sm" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
-                            <input type="checkbox" class="mt-8" onclick="mostrarSenha()">
-                            <label for="senha">&nbsp;Exibir Senha</label>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Usuário</h6>
+                                <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário"
+                                    [(ngModel)]="usuario.nome" name="nomeUsuario">
+                            </div>
                         </div>
-                        <h6 class="mt-10">Tipo de Usuário</h6>
-                        <input type="radio" name="tipoUsuarioProfessor" placeholder="" [(ngModel)]="usuario.tpUsuario" value="Professor">
-                        <label for="Professor">&nbsp;Professor</label>
-                        &nbsp;
-                        <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario" value="ProfessorNDE">
-                        <label for="ProfessorNDE">&nbsp;Professor NDE</label>
-                        <div class="col-md-2">
-                            <h6 class="mt-10">Status</h6>
-                            <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Ativo">
-                            <label for="Ativo">&nbsp;Ativo</label>
-                            &nbsp;
-                            <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Inativo">
-                            <label for="Inativo">&nbsp;Inativo</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6 class="mt-10">Login</h6>
+                                <input type="text" class="form-control form-control-sm" name="login"
+                                    [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="mt-10">Senha</h6>
+                                <input type="password" class="form-control form-control-sm" name="senha" id="senha"
+                                    [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
+
+                            </div>
+                            <div class="col-md-4">
+                                <input type="checkbox" class="mt-50" onclick="mostrarSenha()">
+                                <label for="senha">&nbsp;Exibir Senha</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6 class="mt-10">Tipo de Usuário</h6>
+                                <input type="radio" name="tipoUsuarioProfessor" placeholder=""
+                                    [(ngModel)]="usuario.tpUsuario" value="Professor">
+                                <label for="Professor">&nbsp;Professor</label>
+                                &nbsp;
+                                <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario"
+                                    value="ProfessorNDE">
+                                <label for="ProfessorNDE">&nbsp;Professor NDE</label>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="mt-10">Status</h6>
+                                <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status"
+                                    value="Ativo">
+                                <label for="Ativo">&nbsp;Ativo</label>
+                                &nbsp;
+                                <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status"
+                                    value="Inativo">
+                                <label for="Inativo">&nbsp;Inativo</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,24 +72,26 @@
                     <h3>Lista de Usuários ({{usuarios.length}})</h3>
                     <table class="table table-hover">
                         <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Ações</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Login</th>
-                            <th scope="col">Senha</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Status</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">Ações</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Login</th>
+                                <th scope="col">Senha</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Status</th>
+                            </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
-                            <td><button class="btn btn-primary" (click)="abrirDetalhesUsuario(usuario)">Editar</button></td>
-                            <td>{{usuario.nome}}</td>
-                            <td>{{usuario.login}}</td>
-                            <td>******************</td>
-                            <td>{{usuario.tpUsuario}}</td>
-                            <td>{{usuario.status}}</td>
-                          </tr>
+                            <tr
+                                *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
+                                <td><button class="btn btn-primary"
+                                        (click)="abrirDetalhesUsuario(usuario)">Editar</button></td>
+                                <td>{{usuario.nome}}</td>
+                                <td>{{usuario.login}}</td>
+                                <td>******************</td>
+                                <td>{{usuario.tpUsuario}}</td>
+                                <td>{{usuario.status}}</td>
+                            </tr>
                         </tbody>
                     </table>
                     <div class="text-right">

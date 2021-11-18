@@ -44,7 +44,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let livro of livros | paginate: { itemsPerPage: contadorLivro, currentPage: pagLivro }">
-                <td><button class="btn btn-primary" (click)="abrirDetalhesLivro(livro)">Editar</button></td>
+                <td>
+                  <!-- <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>       Aguardando backend -->
+                  <button class="btn btn-primary" (click)="abrirDetalhesLivro(livro)">Editar</button>
+                </td>
                 <td>{{livro.dsLivro}}</td>
                 <td>{{livro.editora}}</td>
                 <td>{{livro.ano}}</td>
@@ -56,12 +59,12 @@
           </div>
         </div>
         <div class="text-center mt-30">
-            <h1>Cadastrar Autor</h1>
+          <h1>Cadastrar Autor</h1>
         </div>
         <div class="mt-10">
           <h6>Autor</h6>
-          <input class="form-control form-control-sm" type="text" placeholder="Nome do autor"
-              [(ngModel)]="autor.nome" name="Autor">
+          <input class="form-control form-control-sm" type="text" placeholder="Nome do autor" [(ngModel)]="autor.nome"
+            name="Autor">
         </div>
         <div class="row mt-20">
           <div class="col-4 col-md-1">

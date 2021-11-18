@@ -1,8 +1,8 @@
+import { LivroModel } from './../Models/LivroModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.prod';
-import { LivroModel } from '../Models/LivroModel';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +21,11 @@ export class LivroService {
   }
 
   put(livro: LivroModel) {
-    return this.http.put(`${this.url}`, livro);
+    // return this.http.put(`${this.url}`, livro);
+    return this.http.put(`${this.url}/${livro.cdLivro}`, livro);
   }
+
+  // delete(livro: LivroModel) {                                        //Aguardando backend
+  //   return this.http.delete(`${this.url}/${livro.cdLivro}`);
+  // }
 }

@@ -13,15 +13,15 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  post(usuario: UsuarioModel){
+  post(usuario: UsuarioModel) {
     return this.http.post(`${this.url}`, usuario);
   }
 
-  getAll(): Observable<UsuarioModel[]>{
+  getAll(): Observable<UsuarioModel[]> {
     return this.http.get<UsuarioModel[]>(`${this.url}`);
   }
 
-  put(usuario: UsuarioModel){
-    return this.http.put(`${this.url}`, usuario);
+  put(usuario: UsuarioModel) {
+    return this.http.put(`${this.url}/${usuario.cdUsuario}`, usuario);
   }
 }

@@ -13,7 +13,7 @@ export class CadastroLivroComponent implements OnInit {
   LivroModel: any;
   AutorModel: any;
   constructor(private livroService: LivroService,
-              private autorService: AutorService) { }
+    private autorService: AutorService) { }
 
   ngOnInit() {
     this.getLivros();
@@ -37,7 +37,7 @@ export class CadastroLivroComponent implements OnInit {
   paginaAtualAutor: number = 1;
 
   saveLivro() {
-    if(this.livro.cdLivro) {
+    if (this.livro.cdLivro) {
       this.putLivro();
     } else {
       this.postLivro();
@@ -45,7 +45,7 @@ export class CadastroLivroComponent implements OnInit {
   }
 
   saveAutor() {
-    if(this.autor.cdAutor) {
+    if (this.autor.cdAutor) {
       this.putAutor();
     } else {
       this.postAutor();
@@ -57,6 +57,7 @@ export class CadastroLivroComponent implements OnInit {
       this.livro = new LivroModel();
     }
     );
+    alert('Livro cadastrado com sucesso!');
     this.getLivros();
   }
 
@@ -65,6 +66,7 @@ export class CadastroLivroComponent implements OnInit {
       this.autor = new AutorModel();
     }
     );
+    alert('Autor cadastrado com sucesso!');
     this.getAutores();
   }
 
@@ -86,9 +88,18 @@ export class CadastroLivroComponent implements OnInit {
     this.getAutores();
   }
 
-  getLivros(){
+  // deleteLivro() {                                                       //Aguardando backend
+  //   this.livroService.delete(this.livro).subscribe(resposta => {
+
+  //   }
+  //   );
+  //   alert('Autor excluído com sucesso!');
+  //   this.getAutores();
+  // }
+
+  getLivros() {
     this.livroService.getAll().subscribe(
-      (listaLivros: LivroModel[]) =>{
+      (listaLivros: LivroModel[]) => {
         this.livros = listaLivros;
         return this.livros;
       },
@@ -98,9 +109,9 @@ export class CadastroLivroComponent implements OnInit {
     );
   }
 
-  getAutores(){
+  getAutores() {
     this.autorService.getAll().subscribe(
-      (listaAutores: AutorModel[]) =>{
+      (listaAutores: AutorModel[]) => {
         this.autores = listaAutores;
         return this.autores;
       },

@@ -13,15 +13,15 @@ export class CursoService {
 
   constructor(private http: HttpClient) { }
 
-  post(curso: CursoModel){
+  post(curso: CursoModel) {
     return this.http.post(`${this.url}`, curso);
   }
 
-  getAll(): Observable<CursoModel[]>{
+  getAll(): Observable<CursoModel[]> {
     return this.http.get<CursoModel[]>(`${this.url}`);
   }
 
-  put(curso: CursoModel){
-    return this.http.put(`${this.url}`, curso);
+  put(curso: CursoModel) {
+    return this.http.put(`${this.url}/${curso.cdCurso}`, curso);
   }
 }
