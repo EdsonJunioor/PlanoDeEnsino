@@ -28,19 +28,20 @@
                                 <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario" value="ProfessorNDE">
                                 <label for="ProfessorNDE">&nbsp;Professor NDE</label>
                                 <h6 class="mt-8">Status</h6>
-                                <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Ativo">
+                                <input type="radio" name="statusAtivo" placeholder="" [(ngModel)]="usuario.status" value="Ativo">
                                 <label for="Ativo">&nbsp;Ativo</label>
                                 &nbsp;
-                                <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status" value="Inativo">
+                                <input type="radio" name="statusInativo" placeholder="" [(ngModel)]="usuario.status" value="Inativo">
                                 <label for="Inativo">&nbsp;Inativo</label>
                             </div>
                         </div>
                         <div class="row mt-20">
                             <div class="col-6 col-md-1">
-                                <button type="button" class="btn btn-secondary">Editar</button>
+                                <button type="button" class="btn btn-secondary" (click)="editarUsuario()">Editar</button>
                             </div>
                             <div class="col-6 col-md-1">
                                 <button type="button" class="btn btn-success" (click)="salvarUsuario()">Salvar</button>
+                                <button type="button" class="btn btn-success" (click)="buscarUsuarioById()">buscar usuario</button>
                             </div>
                         </div>
                     </div>
@@ -58,7 +59,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style="cursor: pointer;" *ngFor="let usuario of usuarios">
+                    <tr style="cursor: pointer;" *ngFor="let usuario of usuarios" (click)="selecionarUsuario(usuario)">
                       <td>{{usuario.nome}}</td>
                       <td>{{usuario.login}}</td>
                       <td>{{usuario.tpUsuario}}</td>

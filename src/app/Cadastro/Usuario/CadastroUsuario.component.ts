@@ -17,6 +17,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   public usuarios: UsuarioModel[] = [];
   public usuario = new UsuarioModel;
+  public usuarioSelecionado!: UsuarioModel;
 
   // usuarios = [
   //   { nome:'Edson Junior', login:'edson.junior@athon.com', tipoUsuario: 'Professor', status: 'Ativo' },
@@ -45,11 +46,32 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   editarUsuario(){
-    var id = this.usuario.cdUsuario;
+    var id = this.usuarioSelecionado.cdUsuario;
     this.usuarioService.put(id, this.usuario).subscribe( resposta => {
       this.carregarUsuarios();
     });
     this.limparCampos();
+  }
+
+  selecionarUsuario(usuario: UsuarioModel){
+    this.usuarioSelecionado = usuario;
+    if(this.usuarioSelecionado){
+      this.usuario = this.usuarioSelecionado;
+    }
+  }
+
+  buscarUsuarioById(){
+    var id = this.usuarioSelecionado.cdUsuario;
+    var usuarioRetornado = this.usuarioService.getUsuarioById(id).subscribe(
+      (resposta: UsuarioModel) => {
+        this.usuario = resposta;
+        return this.usuario;
+      },
+      (erro: any) => {
+        console.error('Não foi possível buscar um usuário');
+      }
+    );
+    return usuarioRetornado;
   }
 
   limparCampos(){
