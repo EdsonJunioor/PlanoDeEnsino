@@ -21,6 +21,6 @@ export class AutorService {
   }
 
   put(autor: AutorModel) {
-    return this.http.put(`${this.url}/${autor.cdAutor}`, autor);
+    return this.http.put(`${this.url}`, autor);
   }
 }

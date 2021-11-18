@@ -21,8 +21,7 @@ export class LivroService {
   }
 
   put(livro: LivroModel) {
-    // return this.http.put(`${this.url}`, livro);
-    return this.http.put(`${this.url}/${livro.cdLivro}`, livro);
+    return this.http.put(`${this.url}`, livro);
   }
 
   // delete(livro: LivroModel) {                                        //Aguardando backend

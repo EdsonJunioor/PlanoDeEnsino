@@ -22,6 +22,6 @@ export class UsuarioService {
   }
 
   put(usuario: UsuarioModel) {
-    return this.http.put(`${this.url}/${usuario.cdUsuario}`, usuario);
+    return this.http.put(`${this.url}`, usuario);
   }
 }
