@@ -67,13 +67,13 @@
             name="Autor">
         </div>
         <div class="row mt-20">
-          <div class="col-4 col-md-1">
+          <div class="col-3 col-md-1">
             <input class="btn btn-dark" type="reset" value="Limpar">
           </div>
-          <div class="col-4 col-md-1">
+          <div class="col-3 col-md-1">
             <button type="button" class="btn btn-success" (click)="saveAutor()">Salvar</button>
           </div>
-          <div class="col-4 col-md-10">
+          <div class="col-3 col-md-10">
             <button class="btn btn-primary" (click)="mostrarListaAutor = !mostrarListaAutor">
               {{mostrarListaAutor ? 'Mostrar Lista' : 'Ocultar Lista'}}
             </button>
@@ -97,6 +97,14 @@
           </table>
           <div class="text-right">
             <pagination-controls (pageChange)="pagAutor = $event"></pagination-controls>
+          </div>
+        </div>
+        <div class="row mt-20">
+          <div class="col-md-3">
+            <button type="button" class="btn btn-primary" (click)="saveLivroAutor()">Conectar Livro e Autor</button>
+          </div>
+          <div class="col-md-9">
+            <button type="button" class="btn btn-danger">Desconectar Livro e Autor</button>
           </div>
         </div>
       </form>

@@ -3,7 +3,7 @@ import { LivroService } from './../../Services/Livro.service';
 import { Component, OnInit } from '@angular/core';
 import { AutorModel } from './../../Models/AutorModel';
 import { AutorService } from './../../Services/Autor.service';
-
+import { LivroAutorService } from 'src/app/Services/LivroAutor.service';
 @Component({
   selector: 'app-CadastroLivro',
   templateUrl: './CadastroLivro.component.html',
@@ -13,7 +13,8 @@ export class CadastroLivroComponent implements OnInit {
   LivroModel: any;
   AutorModel: any;
   constructor(private livroService: LivroService,
-    private autorService: AutorService) { }
+    private autorService: AutorService,
+    private livroAutorService: LivroAutorService) { }
 
   ngOnInit() {
     this.getLivros();
@@ -52,6 +53,12 @@ export class CadastroLivroComponent implements OnInit {
     }
   }
 
+  saveLivroAutor(){
+    if(this.livro.cdLivro && this.autor.cdAutor){
+      this.postLivroAutor();
+    }
+  }
+
   postLivro() {
     this.livroService.post(this.livro).subscribe((resposta) => {
       this.livro = new LivroModel();
@@ -68,6 +75,15 @@ export class CadastroLivroComponent implements OnInit {
     );
     alert('Autor cadastrado com sucesso!');
     this.getAutores();
+  }
+  
+  postLivroAutor() {
+      var livroAutor = {cdLivro: this.livro.cdLivro, cdAutor: this.autor.cdAutor}; //variável criada para atribuição de valores após seleção na tela de livro e de autor
+      //realização do post diretamente com a variável criada acima
+      this.livroAutorService.post(livroAutor).subscribe((resposta) => {
+    }
+    );
+    alert('Livro e Autor linkados com sucesso!');
   }
 
   putLivro() {
@@ -87,15 +103,6 @@ export class CadastroLivroComponent implements OnInit {
     alert('Autor editado com sucesso!');
     this.getAutores();
   }
-
-  // deleteLivro() {                                                       //Aguardando backend
-  //   this.livroService.delete(this.livro).subscribe(resposta => {
-
-  //   }
-  //   );
-  //   alert('Autor excluído com sucesso!');
-  //   this.getAutores();
-  // }
 
   getLivros() {
     this.livroService.getAll().subscribe(
