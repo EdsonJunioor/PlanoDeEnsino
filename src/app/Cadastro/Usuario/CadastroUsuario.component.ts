@@ -24,7 +24,7 @@ export class CadastroUsuarioComponent implements OnInit {
   paginaAtualUsuario: number = 1;
 
   saveUsuario() {
-    if(this.usuario.cdUsuario) {
+    if (this.usuario.cdUsuario) {
       this.putUsuario();
     } else {
       this.postUsuario();
@@ -49,9 +49,9 @@ export class CadastroUsuarioComponent implements OnInit {
     this.getUsuarios();
   }
 
-  getUsuarios(){
+  getUsuarios() {
     this.usuarioService.getAll().subscribe(
-      (listaUsuarios: UsuarioModel[]) =>{
+      (listaUsuarios: UsuarioModel[]) => {
         this.usuarios = listaUsuarios;
         return this.usuarios;
       },

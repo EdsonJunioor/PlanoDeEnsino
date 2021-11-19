@@ -53,8 +53,8 @@ export class CadastroLivroComponent implements OnInit {
     }
   }
 
-  saveLivroAutor(){
-    if(this.livro.cdLivro && this.autor.cdAutor){
+  saveLivroAutor() {
+    if (this.livro.cdLivro && this.autor.cdAutor) {
       this.postLivroAutor();
     }
   }
@@ -76,11 +76,11 @@ export class CadastroLivroComponent implements OnInit {
     alert('Autor cadastrado com sucesso!');
     this.getAutores();
   }
-  
+
   postLivroAutor() {
-      var livroAutor = {cdLivro: this.livro.cdLivro, cdAutor: this.autor.cdAutor}; //variável criada para atribuição de valores após seleção na tela de livro e de autor
-      //realização do post diretamente com a variável criada acima
-      this.livroAutorService.post(livroAutor).subscribe((resposta) => {
+    var livroAutor = { cdLivro: this.livro.cdLivro, cdAutor: this.autor.cdAutor }; //variável criada para atribuição de valores após seleção na tela de livro e de autor
+    //realização do post diretamente com a variável criada acima
+    this.livroAutorService.post(livroAutor).subscribe((resposta) => {
     }
     );
     alert('Livro e Autor linkados com sucesso!');

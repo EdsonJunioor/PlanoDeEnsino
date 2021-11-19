@@ -24,4 +24,8 @@ export class CursoService {
   put(curso: CursoModel) {
     return this.http.put(`${this.url}`, curso);
   }
+
+  delete(curso: CursoModel) {
+    return this.http.delete(`${this.url}/${curso.cdCurso}`);
+  }
 }

@@ -84,8 +84,10 @@
                         <tbody>
                             <tr
                                 *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
-                                <td><button class="btn btn-primary"
-                                        (click)="abrirDetalhesUsuario(usuario)">Editar</button></td>
+                                <td>
+                                    <button class="btn btn-primary"
+                                        (click)="abrirDetalhesUsuario(usuario)">Editar</button>
+                                </td>
                                 <td>{{usuario.nome}}</td>
                                 <td>{{usuario.login}}</td>
                                 <td>******************</td>

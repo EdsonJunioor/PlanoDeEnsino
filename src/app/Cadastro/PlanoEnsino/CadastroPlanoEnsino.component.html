@@ -13,94 +13,55 @@
             <div class="row">
               <div class="col-8 col-md-8">
                 <h6>Disciplina</h6>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  placeholder="Nome da disciplina"
-                />
+                <!-- <input type="text" class="form-control form-control-sm" placeholder="Nome da disciplina" /> -->
+                <select>
+                  <option *ngFor="let curso of cursos" value="{{curso.cdCurso}}">{{curso.dsCurso}}</option>
+                  <!-- <option value="1">Anderson</option>
+                  <option value="2">Jaime</option>
+                  <option value="3">Castelo</option> -->
+                </select>
               </div>
               <div class="col-4 col-md-4">
                 <h6>Status</h6>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  placeholder="Status"
-                />
+                <input type="text" class="form-control form-control-sm" placeholder="Status" />
               </div>
             </div>
             <div class="row">
               <div class="col-4 col-md-4">
                 <h6 class="mt-10">Créditos</h6>
-                <input
-                  type="number"
-                  class="form-control form-control-sm"
-                  placeholder="Créditos definios pelo MEC"
-                />
+                <input type="number" class="form-control form-control-sm" placeholder="Créditos definios pelo MEC" />
               </div>
               <div class="col-4 col-md-4">
                 <h6 class="mt-10">Horas sala</h6>
-                <input
-                  type="number"
-                  class="form-control form-control-sm"
-                  placeholder="Quantidade de horas na sala de aula"
-                />
+                <input type="number" class="form-control form-control-sm"
+                  placeholder="Quantidade de horas na sala de aula" />
               </div>
               <div class="col-4 col-md-4">
                 <h6 class="mt-10">Horas Preparação Prévia</h6>
-                <input
-                  type="number"
-                  class="form-control form-control-sm"
-                  placeholder="Quantidade de horas de PP"
-                />
+                <input type="number" class="form-control form-control-sm" placeholder="Quantidade de horas de PP" />
               </div>
             </div>
             <h6 class="mt-10">Ementa</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Objetivo do curso"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Objetivo do curso"></textarea>
             <h6 class="mt-10">Objetivo</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Objetivo do curso"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Objetivo do curso"></textarea>
             <h6 class="mt-10">Metodologia geral</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Digite a metodologia geral"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Digite a metodologia geral"></textarea>
             <h6 class="mt-10">Observação</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Digite em caso de haver alguma observação"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Digite em caso de haver alguma observação"></textarea>
           </div>
 
           <div id="bibliografia" class="mt-20">
             <h6 class="mt-20">Bibliografia Básica</h6>
-            <textarea
-              readonly
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Bibliografia Básica"
-            ></textarea>
+            <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Bibliografia Básica"></textarea>
             <h6 class="mt-10">Bibliografia complementar</h6>
-            <textarea
-              readonly
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Bibliografia Complementar"
-            ></textarea>
+            <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Bibliografia Complementar"></textarea>
           </div>
 
           <!-- DESCRIÇÃO DAS SEMANAS -->
@@ -109,145 +70,65 @@
             <h5>Planejamento de aulas</h5>
 
             <h6 class="mt-20">Semana 1</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 2</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 3</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 4</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 5</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 6</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 7</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 8</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 9</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 10</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 11</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 12</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 13</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 14</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 15</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 16</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 17</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 18</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 19</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
             <h6 class="mt-10">Semana 20</h6>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="2"
-              placeholder="Descrição da semana"
-            ></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+              placeholder="Descrição da semana"></textarea>
           </div>
         </div>
         <!-- <div class="col-6 col-md-4 mt-10">

@@ -24,7 +24,7 @@ export class CadastroCursoComponent implements OnInit {
   paginaAtualCurso: number = 1;
 
   saveCurso() {
-    if(this.curso.cdCurso) {
+    if (this.curso.cdCurso) {
       this.putCurso();
     } else {
       this.postCurso();
@@ -49,9 +49,17 @@ export class CadastroCursoComponent implements OnInit {
     this.getCursos();
   }
 
-  getCursos(){
+  deleteCurso(curso: CursoModel) {
+    this.cursoService.delete(curso).subscribe((resposta) => {
+    }
+    );
+    alert('Curso deletado com sucesso!');
+    this.getCursos();
+  }
+
+  getCursos() {
     this.cursoService.getAll().subscribe(
-      (listaCursos: CursoModel[]) =>{
+      (listaCursos: CursoModel[]) => {
         this.cursos = listaCursos;
         return this.cursos;
       },
