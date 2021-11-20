@@ -24,7 +24,7 @@ export class LivroService {
     return this.http.put(`${this.url}`, livro);
   }
 
-  // delete(livro: LivroModel) {                                        //Aguardando backend
-  //   return this.http.delete(`${this.url}/${livro.cdLivro}`);
-  // }
+  delete(livro: LivroModel) {
+    return this.http.delete(`${this.url}/${livro.cdLivro}`);
+  }
 }

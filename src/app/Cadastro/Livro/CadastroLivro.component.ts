@@ -104,6 +104,22 @@ export class CadastroLivroComponent implements OnInit {
     this.getAutores();
   }
 
+  deleteLivro(livro: LivroModel) {
+    this.livroService.delete(livro).subscribe((resposta) => {
+    }
+    );
+    alert('Livro deletado com sucesso!');
+    this.getLivros();
+  }
+
+  deleteAutor(autor: AutorModel) {
+    this.autorService.delete(autor).subscribe((resposta) => {
+    }
+    );
+    alert('Autor deletado com sucesso!');
+    this.getAutores();
+  }
+
   getLivros() {
     this.livroService.getAll().subscribe(
       (listaLivros: LivroModel[]) => {

@@ -23,4 +23,8 @@ export class AutorService {
   put(autor: AutorModel) {
     return this.http.put(`${this.url}`, autor);
   }
+
+  delete(autor: AutorModel) {
+    return this.http.delete(`${this.url}/${autor.cdAutor}`);
+  }
 }
