@@ -15,6 +15,7 @@ import { LoginComponent } from './Login/Login.component';
 const routes: Routes = [
   //Sempre que criado um novo componente, dever ser declarado aqui, para manuzeio de rotas e modules.
   { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch:'full'},
   { path: 'cadastro-plano-de-ensino', component: CadastroPlanoEnsinoComponent },
   { path: 'cadastro-livro', component: CadastroLivroComponent },
   { path: 'cadastro-usuario', component: CadastroUsuarioComponent },

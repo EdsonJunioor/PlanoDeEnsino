@@ -10,22 +10,6 @@ body {
   /* background-color: #0d0d0d; */
 }
 
-a {
-  color: #ccc;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: inline-block;
-  margin: 40px 8px 10px 8px;
-  color: #cccccc;
-}
 
 /* STRUCTURE */
 
@@ -36,7 +20,6 @@ h2 {
   width: 100%;
   min-height: 100vh;
   padding: 10px;
-  background-color: lightgray;
 }
 
 #formContent {
