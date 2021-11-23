@@ -8,23 +8,19 @@
                     </div>
                     <div class="mt-10">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-12">
                                 <h6>Usuário</h6>
-                                <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário"
-                                    [(ngModel)]="usuario.nome" name="nomeUsuario">
+                                <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário" [(ngModel)]="usuario.nome" name="nomeUsuario">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <h6 class="mt-10">Login</h6>
-                                <input type="text" class="form-control form-control-sm" name="login"
-                                    [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
+                                <input type="text" class="form-control form-control-sm" name="login" [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
                             </div>
                             <div class="col-md-4">
                                 <h6 class="mt-10">Senha</h6>
-                                <input type="password" class="form-control form-control-sm" name="senha" id="senha"
-                                    [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
-
+                                <input type="password" class="form-control form-control-sm" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
                             </div>
                             <div class="col-md-4">
                                 <input type="checkbox" class="mt-50" onclick="mostrarSenha()">
@@ -34,42 +30,38 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <h6 class="mt-10">Tipo de Usuário</h6>
-                                <input type="radio" name="tipoUsuarioProfessor" placeholder=""
-                                    [(ngModel)]="usuario.tpUsuario" value="Professor">
+                                <input type="radio" name="tipoUsuarioProfessor" [(ngModel)]="usuario.tpUsuario" value="Professor">
                                 <label for="Professor">&nbsp;Professor</label>
                                 &nbsp;
-                                <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario"
-                                    value="ProfessorNDE">
-                                <label for="ProfessorNDE">&nbsp;Professor NDE</label>
+                                <input type="radio" name="tipoUsuarioNde" [(ngModel)]="usuario.tpUsuario" value="Professor NDE">
+                                <label for="Professor NDE">&nbsp;Professor NDE</label>
                             </div>
                             <div class="col-md-6">
                                 <h6 class="mt-10">Status</h6>
-                                <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status"
-                                    value="Ativo">
+                                <input type="radio" name="status" [(ngModel)]="usuario.status" value="Ativo">
                                 <label for="Ativo">&nbsp;Ativo</label>
                                 &nbsp;
-                                <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status"
-                                    value="Inativo">
+                                <input type="radio" name="status" [(ngModel)]="usuario.status" value="Inativo">
                                 <label for="Inativo">&nbsp;Inativo</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-20">
-                    <div class="col-4 col-md-1">
-                        <input class="btn btn-dark" type="reset" value="Limpar">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
                     </div>
-                    <div class="col-4 col-md-1">
-                        <button type="button" class="btn btn-success" (click)="saveUsuario()">Salvar</button>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" (click)="saveUsuario()">Salvar/Atualizar</button>
                     </div>
-                    <div class="col-4 col-md-10">
+                    <div class="col-8">
                         <button class="btn btn-primary" (click)="mostrarListaUsuario = !mostrarListaUsuario">
-                            {{mostrarListaUsuario ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                            {{mostrarListaUsuario ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
                         </button>
                     </div>
                 </div>
                 <div class="mt-20" *ngIf="!mostrarListaUsuario">
-                    <h3>Lista de Usuários ({{usuarios.length}})</h3>
+                    <h3>Listagem de Usuários ({{usuarios.length}})</h3>
                     <table class="table table-hover">
                         <thead class="thead-dark">
                             <tr>
@@ -86,7 +78,7 @@
                                 *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
                                 <td>
                                     <button class="btn btn-primary"
-                                        (click)="abrirDetalhesUsuario(usuario)">Editar</button>
+                                        (click)="abrirDetalhesUsuario(usuario)">Selecionar/Editar</button>
                                 </td>
                                 <td>{{usuario.nome}}</td>
                                 <td>{{usuario.login}}</td>

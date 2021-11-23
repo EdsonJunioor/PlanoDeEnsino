@@ -41,12 +41,16 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   putUsuario() {
-    this.usuarioService.put(this.usuario).subscribe((resposta) => {
-      this.usuario = new UsuarioModel();
+    this.mostrarListaUsuario = true;
+    if(confirm('Deseja realmente editar o usuário ?')){
+      alert('O usuário foi atualizado com sucesso!');
+      this.usuarioService.put(this.usuario).subscribe((resposta) => {this.usuario = new UsuarioModel();});
+      this.getUsuarios();
     }
-    );
-    alert('Usuário atualizado com sucesso!');
-    this.getUsuarios();
+    else{
+      alert('O usuário NÃO foi atualizado!');
+      this.getUsuarios();
+    }
   }
 
   getUsuarios() {

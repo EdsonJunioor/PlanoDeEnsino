@@ -17,25 +17,25 @@
             <input type="radio" name="tipo" [(ngModel)]="curso.tpGraduacao" value="Licenciatura">
             <label for="Licenciatura">&nbsp;Licenciatura</label>
             &nbsp;
-            <input type="radio" name="tipo" [(ngModel)]="curso.tpGraduacao" value="Tecnologo">
+            <input type="radio" name="tipo" [(ngModel)]="curso.tpGraduacao" value="Tecnólogo">
             <label for="Tecnologo">&nbsp;Tecnólogo</label>
           </div>
         </div>
         <div class="row mt-20">
-          <div class="col-4 col-md-1">
-            <input class="btn btn-dark" type="reset" value="Limpar">
+          <div class="col-2">
+            <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
           </div>
-          <div class="col-4 col-md-1">
-            <button type="button" class="btn btn-success" (click)="saveCurso()">Salvar</button>
+          <div class="col-2">
+            <button type="button" class="btn btn-success" (click)="saveCurso()">Salvar/Atualizar</button>
           </div>
-          <div class="col-4 col-md-10">
+          <div class="col-8">
             <button class="btn btn-primary" (click)="mostrarListaCurso = !mostrarListaCurso">
-              {{mostrarListaCurso ? 'Mostrar Lista' : 'Ocultar Lista'}}
+              {{mostrarListaCurso ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
             </button>
           </div>
         </div>
-        <div class="mt-20" *ngIf="!mostrarListaCurso">
-          <h3>Lista de Cursos ({{cursos.length}})</h3>
+        <div class="mt-30" *ngIf="!mostrarListaCurso">
+          <h3>Listagem de Cursos ({{cursos.length}})</h3>
           <table class="table table-hover">
             <thead class="thead-dark">
               <tr>
@@ -47,8 +47,9 @@
             <tbody>
               <tr *ngFor="let curso of cursos | paginate: { itemsPerPage: contadorCurso, currentPage: pagCurso }">
                 <td>
+                  <button class="btn btn-primary" (click)="abrirDetalhesCurso(curso)">Selecionar/Editar</button>
+                  &nbsp;
                   <button class="btn btn-danger" (click)="deleteCurso(curso)">Excluir</button>
-                  <button class="btn btn-primary" (click)="abrirDetalhesCurso(curso)">Editar</button>
                 </td>
                 <td>{{curso.dsCurso}}</td>
                 <td>{{curso.tpGraduacao}}</td>

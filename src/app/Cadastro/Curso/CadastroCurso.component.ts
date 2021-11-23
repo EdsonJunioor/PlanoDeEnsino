@@ -41,20 +41,27 @@ export class CadastroCursoComponent implements OnInit {
   }
 
   putCurso() {
-    this.cursoService.put(this.curso).subscribe((resposta) => {
-      this.curso = new CursoModel();
+    if(confirm('Deseja realmente editar o curso ?')){
+      alert('O curso foi atualizado com sucesso!');
+      this.cursoService.put(this.curso).subscribe((resposta) => {this.curso = new CursoModel();});
+      this.getCursos();
     }
-    );
-    alert('Curso atualizado com sucesso!');
-    this.getCursos();
+    else{
+      alert('O curso NÃO foi atualizado!');
+      this.getCursos();
+    }
   }
 
   deleteCurso(curso: CursoModel) {
-    this.cursoService.delete(curso).subscribe((resposta) => {
+    if(confirm('Deseja realmente excluir o curso ?')){
+      alert('O curso foi excluído com sucesso!');
+      this.cursoService.delete(curso).subscribe((resposta) => {});
+      this.getCursos();
     }
-    );
-    alert('Curso deletado com sucesso!');
-    this.getCursos();
+    else{
+      alert('O curso NÃO foi excluído!');
+      this.getCursos();
+    }
   }
 
   getCursos() {
