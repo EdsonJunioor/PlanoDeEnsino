@@ -1,3 +1,5 @@
+import { CursoPlanoEnsinoService } from './../../Services/CursoPlanoEnsino.service';
+import { CursoPlanoEnsino } from './../../Models/CursoPlanoEnsino';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaPlanoEnsinoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cursoPlanoEnsinoService: CursoPlanoEnsinoService) { }
 
   ngOnInit() {
+    this.getPlanosDeEnsino();
   }
 
+
+  getPlanosDeEnsino() {
+    this.cursoPlanoEnsinoService.getAll().subscribe(
+      (listaLivros: LivroModel[]) => {
+        this.livros = listaLivros;
+        this.livrosFiltrados = this.livros;
+      },
+      (erro: any) => {
+        console.error('Não foi possivel carregar os livros.');
+      }
+    );
+  }
 }

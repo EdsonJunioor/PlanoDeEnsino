@@ -17,20 +17,11 @@
                 <th scope="col">Ano</th>
               </tr>
             </thead>
-<<<<<<< Updated upstream
-            <tbody>
-              <tr style="cursor: pointer;" *ngFor="let livro of livros">
-                <td>{{livro.dsLivro}}</td>
-                <td>{{livro.editora}}</td>
-                <td>{{livro.ano}}</td>
-                <td>{{livro.nome}}</td>
-=======
             <tbody *ngIf="livrosFiltrados && livrosFiltrados.length">
               <tr style="cursor: pointer;" *ngFor="let livroFiltrado of livrosFiltrados">
                 <td>{{livroFiltrado.dsLivro}}</td>
                 <td>{{livroFiltrado.editora}}</td>
                 <td>{{livroFiltrado.ano}}</td>
->>>>>>> Stashed changes
               </tr>
             </tbody>
             <tfoot>
