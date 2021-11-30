@@ -17,11 +17,30 @@ export class ConsultaLivroComponent implements OnInit {
 
   public livros: LivroModel[] = [];
 
+  public livrosFiltrados: LivroModel[] = []
+  private _filtrar: string = ''
+
+  public get filtrar(): string {
+    return this._filtrar;
+  }
+
+  public set filtrar(value: string) {
+    this._filtrar = value;
+    this.livrosFiltrados = this.filtrar ? this.filtrarLivros(this.filtrar) : this.livros
+  }
+
+  filtrarLivros(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.livros.filter(
+      livro => livro.dsLivro.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+    )
+  }
+
   getLivros() {
     this.livroService.getAll().subscribe(
       (listaLivros: LivroModel[]) => {
         this.livros = listaLivros;
-        return this.livros;
+        this.livrosFiltrados = this.livros;
       },
       (erro: any) => {
         console.error('Não foi possivel carregar os livros.');

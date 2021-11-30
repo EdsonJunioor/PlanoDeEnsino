@@ -5,11 +5,9 @@
         <div class="text-center mt-30">
           <h1>Consultar Livro</h1>
         </div>
-        <form class="navbar-form navbar-left mt-20" role="search">
-          <div class="form-group col-12 col-md-12">
-              <input type="text" class="form-control" placeholder="Buscar">
-          </div>
-        </form>
+        <div class="form-group col-12 col-md-12">
+          <input [(ngModel)]="filtrar" type="text" class="form-control" placeholder="Buscar">
+        </div>
         <div class="mt-20">
           <table class="table table-hover">
             <thead class="thead-dark">
@@ -17,17 +15,31 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Editora</th>
                 <th scope="col">Ano</th>
-                <th scope="col">Autores</th>
               </tr>
             </thead>
+<<<<<<< Updated upstream
             <tbody>
               <tr style="cursor: pointer;" *ngFor="let livro of livros">
                 <td>{{livro.dsLivro}}</td>
                 <td>{{livro.editora}}</td>
                 <td>{{livro.ano}}</td>
                 <td>{{livro.nome}}</td>
+=======
+            <tbody *ngIf="livrosFiltrados && livrosFiltrados.length">
+              <tr style="cursor: pointer;" *ngFor="let livroFiltrado of livrosFiltrados">
+                <td>{{livroFiltrado.dsLivro}}</td>
+                <td>{{livroFiltrado.editora}}</td>
+                <td>{{livroFiltrado.ano}}</td>
+>>>>>>> Stashed changes
               </tr>
             </tbody>
+            <tfoot>
+              <tr *ngIf="!livrosFiltrados.length">
+                <td colspan="8" class="text-center">
+                  <h4>Nenhum livro encontrado</h4>
+                </td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </div>
