@@ -45,8 +45,250 @@
             <textarea class="form-control" rows="3"
               placeholder="Digite em caso de haver alguma observação" [(ngModel)]="plano.dsObservacao" name="dsObservacao"></textarea>
           </div>
+          <div id="avaliacoes" class="mt-20">
+            <h4>Avaliações</h4>
+            <h5 class="mt-20">Avaliação 1</h5>
+            <div class="row">
+              <div class="col-11">
+                <h6 class="mt-10">Nome</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Nome da avaliação" [(ngModel)]="plano.nomeA1" name="nomeA1">
+              </div>
+              <div class="col-1">
+                <h6 class="mt-10">Peso</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Peso (%)" [(ngModel)]="plano.pesoA1" name="pesoA1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Número de Alunos</h6>
+                <input type="radio" name="dsAlunoA1" [(ngModel)]="plano.dsAlunoA1" value="Individual">
+                <label for="Individual">&nbsp;Individual</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA1" [(ngModel)]="plano.dsAlunoA1" value="Em Grupo">
+                <label for="Em grupo">&nbsp;Em grupo</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA1" [(ngModel)]="plano.dsAlunoA1" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Conteúdo</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Conteúdo da avaliação" [(ngModel)]="plano.dsConteudoA1" name="dsConteudoA1"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Consulta</h6>
+                <input type="radio" name="dsConsultaA1" [(ngModel)]="plano.dsConsultaA1" value="Sem Consulta">
+                <label for="Sem Consulta">&nbsp;Sem Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA1" [(ngModel)]="plano.dsConsultaA1" value="Com Consulta">
+                <label for="Com Consulta">&nbsp;Com Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA1" [(ngModel)]="plano.dsConsultaA1" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Observações</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Observações da avaliação" [(ngModel)]="plano.dsObservacaoA1" name="dsObservacaoA1"></textarea>
+              </div>
+            </div>
+            <div class="col-4">
+              <h6 class="mt-20">Tipo de Avaliação</h6>
+              <input type="radio" name="dsAvaliacaoA1" [(ngModel)]="plano.dsAvaliacaoA1" value="Escrita">
+              <label for="Escrita">&nbsp;Escrita</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA1" [(ngModel)]="plano.dsAvaliacaoA1" value="Oral">
+              <label for="Oral">&nbsp;Oral</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA1" [(ngModel)]="plano.dsAvaliacaoA1" value="Decisão do Professor">
+              <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+            </div>
+            <div class="col-8"></div>
+            &nbsp;
+            <h5 class="mt-20">Avaliação 2</h5>
+            <div class="row">
+              <div class="col-11">
+                <h6 class="mt-10">Nome</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Nome da avaliação" [(ngModel)]="plano.nomeA2" name="nomeA2">
+              </div>
+              <div class="col-1">
+                <h6 class="mt-10">Peso</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Peso (%)" [(ngModel)]="plano.pesoA2" name="pesoA2">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Número de Alunos</h6>
+                <input type="radio" name="dsAlunoA2" [(ngModel)]="plano.dsAlunoA2" value="Individual">
+                <label for="Individual">&nbsp;Individual</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA2" [(ngModel)]="plano.dsAlunoA2" value="Em Grupo">
+                <label for="Em grupo">&nbsp;Em grupo</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA2" [(ngModel)]="plano.dsAlunoA2" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Conteúdo</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Conteúdo da avaliação" [(ngModel)]="plano.dsConteudoA2" name="dsConteudoA2"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Consulta</h6>
+                <input type="radio" name="dsConsultaA2" [(ngModel)]="plano.dsConsultaA2" value="Sem Consulta">
+                <label for="Sem Consulta">&nbsp;Sem Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA2" [(ngModel)]="plano.dsConsultaA2" value="Com Consulta">
+                <label for="Com Consulta">&nbsp;Com Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA2" [(ngModel)]="plano.dsConsultaA2" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Observações</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Observações da avaliação" [(ngModel)]="plano.dsObservacaoA2" name="dsObservacaoA2"></textarea>
+              </div>
+            </div>
+            <div class="col-4">
+              <h6 class="mt-20">Tipo de Avaliação</h6>
+              <input type="radio" name="dsAvaliacaoA2" [(ngModel)]="plano.dsAvaliacaoA2" value="Escrita">
+              <label for="Escrita">&nbsp;Escrita</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA2" [(ngModel)]="plano.dsAvaliacaoA2" value="Oral">
+              <label for="Oral">&nbsp;Oral</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA2" [(ngModel)]="plano.dsAvaliacaoA2" value="Decisão do Professor">
+              <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+            </div>
+            <div class="col-8"></div>
+            &nbsp;
+            <h5 class="mt-20">Avaliação 3</h5>
+            <div class="row">
+              <div class="col-11">
+                <h6 class="mt-10">Nome</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Nome da avaliação" [(ngModel)]="plano.nomeA3" name="nomeA3">
+              </div>
+              <div class="col-1">
+                <h6 class="mt-10">Peso</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Peso (%)" [(ngModel)]="plano.pesoA3" name="pesoA3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Número de Alunos</h6>
+                <input type="radio" name="dsAlunoA3" [(ngModel)]="plano.dsAlunoA3" value="Individual">
+                <label for="Individual">&nbsp;Individual</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA3" [(ngModel)]="plano.dsAlunoA3" value="Em Grupo">
+                <label for="Em grupo">&nbsp;Em grupo</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA3" [(ngModel)]="plano.dsAlunoA3" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Conteúdo</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Conteúdo da avaliação" [(ngModel)]="plano.dsConteudoA3" name="dsConteudoA3"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Consulta</h6>
+                <input type="radio" name="dsConsultaA3" [(ngModel)]="plano.dsConsultaA3" value="Sem Consulta">
+                <label for="Sem Consulta">&nbsp;Sem Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA3" [(ngModel)]="plano.dsConsultaA3" value="Com Consulta">
+                <label for="Com Consulta">&nbsp;Com Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA3" [(ngModel)]="plano.dsConsultaA3" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Observações</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Observações da avaliação" [(ngModel)]="plano.dsObservacaoA3" name="dsObservacaoA3"></textarea>
+              </div>
+            </div>
+            <div class="col-4">
+              <h6 class="mt-20">Tipo de Avaliação</h6>
+              <input type="radio" name="dsAvaliacaoA3" [(ngModel)]="plano.dsAvaliacaoA3" value="Escrita">
+              <label for="Escrita">&nbsp;Escrita</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA3" [(ngModel)]="plano.dsAvaliacaoA3" value="Oral">
+              <label for="Oral">&nbsp;Oral</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA3" [(ngModel)]="plano.dsAvaliacaoA3" value="Decisão do Professor">
+              <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+            </div>
+            <div class="col-8"></div>
+            &nbsp;
+            <h5 class="mt-20">Avaliação 4</h5>
+            <div class="row">
+              <div class="col-11">
+                <h6 class="mt-10">Nome</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Nome da avaliação" [(ngModel)]="plano.nomeA4" name="nomeA4">
+              </div>
+              <div class="col-1">
+                <h6 class="mt-10">Peso</h6>
+                <input type="text" class="form-control form-control-sm" placeholder="Peso (%)" [(ngModel)]="plano.pesoA4" name="pesoA4">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Número de Alunos</h6>
+                <input type="radio" name="dsAlunoA4" [(ngModel)]="plano.dsAlunoA4" value="Individual">
+                <label for="Individual">&nbsp;Individual</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA4" [(ngModel)]="plano.dsAlunoA4" value="Em Grupo">
+                <label for="Em grupo">&nbsp;Em grupo</label>
+                &nbsp;
+                <input type="radio" name="dsAlunoA4" [(ngModel)]="plano.dsAlunoA4" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Conteúdo</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Conteúdo da avaliação" [(ngModel)]="plano.dsConteudoA4" name="dsConteudoA4"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h6 class="mt-20">Consulta</h6>
+                <input type="radio" name="dsConsultaA4" [(ngModel)]="plano.dsConsultaA4" value="Sem Consulta">
+                <label for="Sem Consulta">&nbsp;Sem Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA4" [(ngModel)]="plano.dsConsultaA4" value="Com Consulta">
+                <label for="Com Consulta">&nbsp;Com Consulta</label>
+                &nbsp;
+                <input type="radio" name="dsConsultaA4" [(ngModel)]="plano.dsConsultaA4" value="Decisão do Professor">
+                <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+              </div>
+              <div class="col-7">
+                <h6 class="mt-20">Observações</h6>
+                <textarea class="form-control" rows="1"
+                  placeholder="Observações da avaliação" [(ngModel)]="plano.dsObservacaoA4" name="dsObservacaoA4"></textarea>
+              </div>
+            </div>
+            <div class="col-4">
+              <h6 class="mt-20">Tipo de Avaliação</h6>
+              <input type="radio" name="dsAvaliacaoA4" [(ngModel)]="plano.dsAvaliacaoA4" value="Escrita">
+              <label for="Escrita">&nbsp;Escrita</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA4" [(ngModel)]="plano.dsAvaliacaoA4" value="Oral">
+              <label for="Oral">&nbsp;Oral</label>
+              &nbsp;
+              <input type="radio" name="dsAvaliacaoA4" [(ngModel)]="plano.dsAvaliacaoA4" value="Decisão do Professor">
+              <label for="Decisão do Professor">&nbsp;Decisão do Professor</label>
+            </div>
+            <div class="col-8"></div>
+          </div>
           <div id="planejamento-aulas" class="mt-20">
-            <h5>Planejamento de Aulas</h5>
+            <h4>Planejamento de Aulas</h4>
             <h6 class="mt-20">Semana 1</h6>
             <textarea class="form-control" rows="1"
               placeholder="Descrição da semana" [(ngModel)]="plano.dsSemana1" name="dsSemana1"></textarea>
@@ -120,7 +362,7 @@
             <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
           </div>
           <div class="col-2 col-md-2">
-            <button type="button" class="btn btn-success" (click)="postPlano()">Salvar/Atualizar</button>
+            <button type="button" class="btn btn-success" (click)="savePlano()">Salvar/Atualizar</button>
           </div>
           <div class="col-8 col-md-8">
             <button class="btn btn-primary" (click)="mostrarListaPlano = !mostrarListaPlano">
@@ -156,6 +398,165 @@
               <pagination-controls (pageChange)="pagPlano = $event"></pagination-controls>
           </div>
         </div>
+        <div class="row mt-30">
+          <h4>Cursos</h4>
+          <div class="col-6">
+            <h5>Selecionado</h5>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="curso.dsCurso" name="dsCurso">
+          </div>
+          <div class="col-6">
+            <h5>Conectado(s)</h5>
+            <textarea class="form-control" rows="1"></textarea>
+          </div>
+        </div>
+        <div class="row mt-10">
+          <div class="col-1">
+            <button type="button" class="btn btn-primary" (click)="saveCursoPlano()">Conectar</button>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-danger" (click)="deleteCursoPlano(curso, plano)">Desconectar</button>
+          </div>
+          <div class="col-9">
+            <button class="btn btn-primary" (click)="mostrarListaCurso = !mostrarListaCurso">
+              {{mostrarListaCurso ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
+            </button>
+          </div>
+        </div>
+        <div class="mt-30" *ngIf="!mostrarListaCurso">
+          <h5>Listagem de Cursos ({{cursos.length}})</h5>
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Ações</th>
+                <th scope="col">Nome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let curso of cursos | paginate: { itemsPerPage: contadoCurso, currentPage: pagCurso }">
+                <td>
+                  <button class="btn btn-primary" (click)="abrirDetalhesCurso(curso)">Selecionar</button>
+                </td>
+                <td>{{curso.dsCurso}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-right">
+            <pagination-controls (pageChange)="pagCurso = $event"></pagination-controls>
+          </div>
+        </div>
+
+        <div class="col-12">&nbsp;</div>
+
+        <div class="row mt-30">
+          <h4>Professores</h4>
+          <div class="col-6">
+            <h5>Selecionado</h5>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="usuario.nome" name="nome">
+          </div>
+          <div class="col-6">
+            <h5>Conectado(s)</h5>
+            <textarea class="form-control" rows="1"></textarea>
+          </div>
+        </div>
+        <div class="row mt-10">
+          <div class="col-1">
+            <button type="button" class="btn btn-primary" (click)="saveUsuarioPlano()">Conectar</button>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-danger" (click)="deleteUsuarioPlano(usuario, plano)">Desconectar</button>
+          </div>
+          <div class="col-9">
+            <button class="btn btn-primary" (click)="mostrarListaUsuario = !mostrarListaUsuario">
+              {{mostrarListaUsuario ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
+            </button>
+          </div>
+        </div>
+        <div class="mt-30" *ngIf="!mostrarListaUsuario">
+          <h5>Listagem de Professores ({{usuarios.length}})</h5>
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Ações</th>
+                <th scope="col">Nome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
+                <td>
+                  <button class="btn btn-primary" (click)="abrirDetalhesUsuario(usuario)">Selecionar</button>
+                </td>
+                <td>{{usuario.nome}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-right">
+            <pagination-controls (pageChange)="pagUsuario = $event"></pagination-controls>
+          </div>
+        </div>
+
+        <div class="col-12">&nbsp;</div>
+        
+        <div class="row mt-30">
+          <h4>Livros</h4>
+          <div class="col-6">
+            <h5>Selecionado</h5>
+            <input type="text" class="form-control form-control-sm" [(ngModel)]="livro.dsLivro" name="dsLivro">
+          </div>
+          <div class="col-6">
+            <h5>Tipo de Bibliografia</h5>
+            <input type="radio" name="tpBibliografia" [(ngModel)]="livroPlano.tpBibliografia" value="Básica">
+            <label for="Básica">&nbsp;Básica</label>
+            &nbsp;
+            <input type="radio" name="tpBibliografia" [(ngModel)]="livroPlano.tpBibliografia" value="Complementar">
+            <label for="Complementar">&nbsp;Complementar</label>
+          </div>
+        </div>
+        <div class="row mt-10">
+          <div class="col-1">
+            <button type="button" class="btn btn-primary" (click)="saveLivroPlano()">Conectar</button>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-danger" (click)="deleteLivroPlano(livro,plano)">Desconectar</button>
+          </div>
+          <div class="col-9">
+            <button class="btn btn-primary" (click)="mostrarListaLivro = !mostrarListaLivro">
+              {{mostrarListaLivro ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
+            </button>
+          </div>
+        </div>
+        <div class="row mt-20">
+          <div class="col-6">
+            <h5>Conectado(s) - Bibliografia Básica</h5>
+            <textarea class="form-control" rows="1"></textarea>
+          </div>
+          <div class="col-6">
+            <h5>Conectado(s) - Bibliografia Complementar</h5>
+            <textarea class="form-control" rows="1"></textarea>
+          </div>
+        </div>
+        <div class="mt-30" *ngIf="!mostrarListaLivro">
+          <h5>Listagem de Livros ({{livros.length}})</h5>
+          <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Ações</th>
+                <th scope="col">Título</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let livro of livros | paginate: { itemsPerPage: contadorLivro, currentPage: pagLivro }">
+                <td>
+                  <button class="btn btn-primary" (click)="abrirDetalhesLivro(livro)">Selecionar</button>
+                </td>
+                <td>{{livro.dsLivro}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-right">
+            <pagination-controls (pageChange)="pagLivro = $event"></pagination-controls>
+          </div>
+        </div>
+        <div class="col-12">&nbsp;</div>
       </form>
     </div>
   </div>

@@ -9,6 +9,34 @@ export class PlanoEnsinoModel {
     dsObjetivo!: string;
     dsMTDGeral!: string;
     dsObservacao!: string;
+    nomeA1!: string;
+    pesoA1!: string;
+    dsAlunoA1!: string;
+    dsConsultaA1!: string;
+    dsAvaliacaoA1!: string;
+    dsConteudoA1!: string;
+    dsObservacaoA1!: string;
+    nomeA2!: string;
+    pesoA2!: string;
+    dsAlunoA2!: string;
+    dsConsultaA2!: string;
+    dsAvaliacaoA2!: string;
+    dsConteudoA2!: string;
+    dsObservacaoA2!: string;
+    nomeA3!: string;
+    pesoA3!: string;
+    dsAlunoA3!: string;
+    dsConsultaA3!: string;
+    dsAvaliacaoA3!: string;
+    dsConteudoA3!: string;
+    dsObservacaoA3!: string;
+    nomeA4!: string;
+    pesoA4!: string;
+    dsAlunoA4!: string;
+    dsConsultaA4!: string;
+    dsAvaliacaoA4!: string;
+    dsConteudoA4!: string;
+    dsObservacaoA4!: string;
     dsSemana1!: string;
     dsSemana2!: string;
     dsSemana3!: string;
@@ -32,4 +60,3 @@ export class PlanoEnsinoModel {
     status!: string;
     dtAtualizacao!: Date;
   }
-  

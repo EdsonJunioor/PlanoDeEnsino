@@ -16,6 +16,10 @@ export class PlanoEnsinoService {
     return this.http.post(`${this.url}`, plano);
   }
 
+  put(plano: PlanoEnsinoModel) {
+    return this.http.put(`${this.url}`, plano);
+  }
+
   getAll(): Observable<PlanoEnsinoModel[]> {
     return this.http.get<PlanoEnsinoModel[]>(`${this.url}`);
   }

@@ -68,6 +68,9 @@ export class CadastroLivroComponent implements OnInit {
         alert('Livro e Autor NÃO foram conectados!');
       }
     }
+    else{
+      alert('O Livro e/ou Autor NÃO foram encontrados!');
+    }
   }
 
   postLivro() {
