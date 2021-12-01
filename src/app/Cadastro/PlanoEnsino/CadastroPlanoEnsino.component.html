@@ -1,16 +1,15 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 col-sm-3 sidebar1">
+    <div class="col-md-2 sidebar1">
       <app-Menu></app-Menu>
     </div>
-
     <!-- componente da tela -->
-    <div class="col-md-8 col-sm-8">
+    <div class="col-md-10">
       <div class="container">
         <div class="row justify-content-md-center">
           <form>
         <div class="form-group">
-          <div class="text-center mt-20">
+          <div class="text-center mt-30">
             <h1>Cadastrar Plano de Ensino</h1>
           </div>
           <div class="mt-20">
@@ -52,9 +51,9 @@
             <textarea class="form-control" rows="3"
               placeholder="Digite em caso de haver alguma observação" [(ngModel)]="plano.dsObservacao" name="dsObservacao"></textarea>
           </div>
-          <div id="avaliacoes" class="mt-20">
-            <h4>Avaliações</h4>
-            <h5 class="mt-20">Avaliação 1</h5>
+          <div class="row">
+            <h4 class="mt-20">Avaliações</h4>
+            <h5 class="mt-10">Avaliação 1</h5>
             <div class="row">
               <div class="col-11">
                 <h6 class="mt-10">Nome</h6>

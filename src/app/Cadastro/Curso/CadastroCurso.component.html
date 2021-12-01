@@ -1,11 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 col-sm-3 sidebar1">
+    <div class="col-md-2 sidebar1">
       <app-Menu></app-Menu>
     </div>
-
-    <!-- componente da tela -->
-    <div class="col-md-8 col-sm-8">
+    <div class="col-md-10">
       <div class="container">
         <div class="row justify-content-md-center">
           <form>
@@ -29,15 +27,15 @@
               </div>
             </div>
             <div class="row mt-20">
-              <div class="col-md-1 col-sm-1">
+              <div class="col-md-2">
                 <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
               </div>
-              <div class="col-md-1 col-sm-1 ml-10">
+              <div class="col-md-2">
                 <button type="button" class="btn btn-success" (click)="saveCurso()">Salvar/Atualizar</button>
               </div>
-              <div class="col-md-2 col-sm-2 ml-5">
+              <div class="col-md-2">
                 <button class="btn btn-primary" (click)="mostrarListaCurso = !mostrarListaCurso">
-                  {{mostrarListaCurso ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                  {{mostrarListaCurso ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
                 </button>
               </div>
             </div>

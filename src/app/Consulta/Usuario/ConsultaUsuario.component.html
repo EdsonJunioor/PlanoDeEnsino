@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 col-sm-3 sidebar1">
+    <div class="col-md-2 sidebar1">
       <app-Menu></app-Menu>
     </div>
 
     <!-- componente da tela -->
-    <div class="col-md-8 col-sm-8">
+    <div class="col-md-10">
       <div class="container">
         <div class="row justify-content-md-center">
          
@@ -14,7 +14,7 @@
         <div class="text-center mt-30">
           <h1>Consultar Usuário</h1>
         </div>
-        <div class="form-group col-12 col-md-12">
+        <div class="form-group col-12 mt-20">
           <input [(ngModel)]="filtrar" type="text" class="form-control" placeholder="Buscar">
         </div>
         <div class="mt-20">
@@ -23,7 +23,6 @@
               <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Login</th>
-                <th scope="col">Senha</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Status</th>
               </tr>
@@ -32,7 +31,6 @@
               <tr style="cursor: pointer;" *ngFor="let usuarioFiltrado of usuariosFiltrados">
                 <td>{{usuarioFiltrado.nome}}</td>
                 <td>{{usuarioFiltrado.login}}</td>
-                <td>******************</td>
                 <td>{{usuarioFiltrado.tpUsuario}}</td>
                 <td>{{usuarioFiltrado.status}}</td>
               </tr>
