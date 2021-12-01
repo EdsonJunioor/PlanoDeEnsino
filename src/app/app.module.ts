@@ -16,8 +16,10 @@ import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.
 import { ConsultaLivroComponent } from './Consulta/Livro/ConsultaLivro.component';
 import { ConsultaCursoComponent } from './Consulta/Curso/ConsultaCurso.component';
 import { ConsultaUsuarioComponent } from './Consulta/Usuario/ConsultaUsuario.component';
+import { ConsultaPlanoEnsinoComponent } from './Consulta/PlanoEnsino/ConsultaPlanoEnsino.component'; 
 import { MenuComponent } from './Menu/Menu.component';
 import { HomeComponent } from './Home/Home.component';
+import { ConsultaSugestaoComponent } from './Consulta/Sugestao/ConsultaSugestao.component';
 
 @NgModule({
   declarations: [					    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
@@ -31,6 +33,8 @@ import { HomeComponent } from './Home/Home.component';
       ConsultaLivroComponent,
       ConsultaCursoComponent,
       ConsultaUsuarioComponent,
+      ConsultaPlanoEnsinoComponent,
+      ConsultaSugestaoComponent,
       HomeComponent,
       MenuComponent
    ],
