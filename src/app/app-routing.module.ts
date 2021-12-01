@@ -10,12 +10,14 @@ import { CadastroLivroComponent } from './Cadastro/Livro/CadastroLivro.component
 import { CadastroPlanoEnsinoComponent } from './Cadastro/PlanoEnsino/CadastroPlanoEnsino.component';
 import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.component';
 import { CadastroUsuarioComponent } from './Cadastro/Usuario/CadastroUsuario.component';
+import { HomeComponent } from './Home/Home.component';
 import { LoginComponent } from './Login/Login.component';
 
 const routes: Routes = [
   //Sempre que criado um novo componente, dever ser declarado aqui, para manuzeio de rotas e modules.
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch:'full'},
+  { path: 'home', component: HomeComponent},
   { path: 'cadastro-plano-de-ensino', component: CadastroPlanoEnsinoComponent },
   { path: 'cadastro-livro', component: CadastroLivroComponent },
   { path: 'cadastro-usuario', component: CadastroUsuarioComponent },

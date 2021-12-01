@@ -16,9 +16,10 @@ import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.
 import { ConsultaLivroComponent } from './Consulta/Livro/ConsultaLivro.component';
 import { ConsultaCursoComponent } from './Consulta/Curso/ConsultaCurso.component';
 import { ConsultaUsuarioComponent } from './Consulta/Usuario/ConsultaUsuario.component';
+import { HomeComponent } from './Home/Home.component';
 
 @NgModule({
-  declarations: [		    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
+  declarations: [				    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
     AppComponent,
       LoginComponent,
       CadastroLivroComponent,
@@ -28,7 +29,8 @@ import { ConsultaUsuarioComponent } from './Consulta/Usuario/ConsultaUsuario.com
       CadastroSugestaoComponent,
       ConsultaLivroComponent,
       ConsultaCursoComponent,
-      ConsultaUsuarioComponent
+      ConsultaUsuarioComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
@@ -39,7 +41,9 @@ import { ConsultaUsuarioComponent } from './Consulta/Usuario/ConsultaUsuario.com
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    LoginComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,11 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'PlanoDeEnsino';
-
-  getLogado: any;
+  title = 'Plano de Ensino';
 
   constructor() {
-    this.getLogado = localStorage.getItem('logado');
   }
 }

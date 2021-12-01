@@ -1,116 +1,169 @@
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="offset-2 center">
-      <form>
-        <div class="form-group">
-          <div class="text-center mt-30">
-            <h1>Cadastrar Livro</h1>
-          </div>
-          <div class="mt-10">
-            <h6>Livro</h6>
-            <input class="form-control form-control-sm" type="text" placeholder="Nome do livro"
-              [(ngModel)]="livro.dsLivro" name="Livro">
-            <h6 class="mt-10">Editora</h6>
-            <input class="form-control form-control-sm" type="text" placeholder="Editora do livro"
-              [(ngModel)]="livro.editora" name="Editora">
-            <h6 class="mt-10">Ano</h6>
-            <input class="form-control form-control-sm" type="number" placeholder="Ano de lançamento"
-              [(ngModel)]="livro.ano" name="Ano">
-          </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 sidebar1" >
+      <div class="logo mt-30">
+        <a routerLink="/home"><img src="assets/imagens/logo-athon.png" class="img-responsive center-block" alt="Logo Athon" height="85px" /></a>
+       </div>
+       <br />
+       <div class="left-navigation">
+         <ul class="list">
+           <h5><strong>CADASTRO</strong></h5>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="/cadastro-curso" routerLinkActive="active">Curso</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="/cadastro-livro" routerLinkActive="active">Livro</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="/cadastro-plano-de-ensino" routerLinkActive="active">Plano de Ensino</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="/cadastro-sugestao" routerLinkActive="active">Sugestão</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="/cadastro-usuario" routerLinkActive="active">Usuário</a>
+           </li>
+         </ul>
+     
+         <br />
+     
+         <ul class="list">
+           <h5><strong>CONSULTA</strong></h5>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="consulta-curso" routerLinkActive="active">Curso</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="consulta-livro" routerLinkActive="active">Livro</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="consulta-plano-de-ensino" routerLinkActive="active">Plano de Ensino</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="consulta-sugestao" routerLinkActive="active">Sugestão</a>
+           </li>
+           <li>
+             <a class="nav-link active color-txt" aria-current="page" routerLink="consulta-usuario" routerLinkActive="active">Usuário</a>
+           </li>
+         </ul>
+       </div>
+    </div>
+
+    <!-- componente da tela -->
+    <div class="col-md-8 col-sm-8">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <form>
+            <div class="form-group">
+              <div class="text-center mt-30">
+                <h1>Cadastrar Livro</h1>
+              </div>
+              <div class="mt-10">
+                <h6>Livro</h6>
+                <input class="form-control form-control-sm" type="text" placeholder="Nome do livro"
+                  [(ngModel)]="livro.dsLivro" name="Livro">
+                <h6 class="mt-10">Editora</h6>
+                <input class="form-control form-control-sm" type="text" placeholder="Editora do livro"
+                  [(ngModel)]="livro.editora" name="Editora">
+                <h6 class="mt-10">Ano</h6>
+                <input class="form-control form-control-sm" type="number" placeholder="Ano de lançamento"
+                  [(ngModel)]="livro.ano" name="Ano">
+              </div>
+            </div>
+            <div class="row mt-20">
+              <div class="col-md-1 col-sm-1">
+                <button type="button" class="btn btn-dark">Limpar</button>
+              </div>
+              <div class="col-md-1 col-sm-1 ml-10">
+                <button type="button" class="btn btn-success" (click)="saveLivro()">Salvar</button>
+              </div>
+              <div class="col-md-2 col-sm-2 ml-5">
+                <button class="btn btn-primary" (click)="mostrarListaLivro = !mostrarListaLivro">
+                  {{mostrarListaLivro ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                </button>
+              </div>
+            </div>
+            <div class="mt-20" *ngIf="!mostrarListaLivro">
+              <h3>Lista de Livros ({{livros.length}})</h3>
+              <table class="table table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Ações</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Editora</th>
+                    <th scope="col">Ano</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let livro of livros | paginate: { itemsPerPage: contadorLivro, currentPage: pagLivro }">
+                    <td>
+                      <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>
+                      <button class="ml-5 btn btn-primary" (click)="abrirDetalhesLivro(livro)">Editar</button>
+                    </td>
+                    <td>{{livro.dsLivro}}</td>
+                    <td>{{livro.editora}}</td>
+                    <td>{{livro.ano}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-right">
+                <pagination-controls (pageChange)="pagLivro = $event"></pagination-controls>
+              </div>
+            </div>
+            <div class="text-center mt-30">
+              <h1>Cadastrar Autor</h1>
+            </div>
+            <div class="mt-10">
+              <h6>Autor</h6>
+              <input class="form-control form-control-sm" type="text" placeholder="Nome do autor" [(ngModel)]="autor.nome"
+                name="Autor">
+            </div>
+            <div class="row mt-20">
+              <div class="col-md-1 col-sm-1">
+                <button type="button" class="btn btn-dark">Limpar</button>
+              </div>
+              <div class="col-md-1 col-sm-1 ml-10">
+                <button type="button" class="btn btn-success" (click)="saveAutor()">Salvar</button>
+              </div>
+              <div class="col-md-2 col-sm-2 ml-5">
+                <button class="btn btn-primary" (click)="mostrarListaAutor = !mostrarListaAutor">
+                  {{mostrarListaAutor ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                </button>
+              </div>
+            </div>
+            <div class="mt-20" *ngIf="!mostrarListaAutor">
+              <h3>Lista de Autores ({{autores.length}})</h3>
+              <table class="table table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Ações</th>
+                    <th scope="col">Nome</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let autor of autores | paginate: { itemsPerPage: contadorAutor, currentPage: pagAutor }">
+                    <td>
+                      <button class="btn btn-danger" (click)="deleteAutor(autor)">Excluir</button>
+                      <button class="ml-5 btn btn-primary" (click)="abrirDetalhesAutor(autor)">Editar</button>
+                    </td>
+                    <td>{{autor.nome}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-right">
+                <pagination-controls (pageChange)="pagAutor = $event"></pagination-controls>
+              </div>
+            </div>
+            <div class="row mt-20">
+              <div class="col-md-3">
+                <button type="button" class="btn btn-primary" (click)="saveLivroAutor()">Conectar Livro e Autor</button>
+              </div>
+              <div class="col-md-9">
+                <button type="button" class="btn btn-danger">Desconectar Livro e Autor</button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="row mt-20">
-          <div class="col-4 col-md-1">
-            <input class="btn btn-dark" type="reset" value="Limpar">
-          </div>
-          <div class="col-4 col-md-1">
-            <button type="button" class="btn btn-success" (click)="saveLivro()">Salvar</button>
-          </div>
-          <div class="col-4 col-md-10">
-            <button class="btn btn-primary" (click)="mostrarListaLivro = !mostrarListaLivro">
-              {{mostrarListaLivro ? 'Mostrar Lista' : 'Ocultar Lista'}}
-            </button>
-          </div>
-        </div>
-        <div class="mt-20" *ngIf="!mostrarListaLivro">
-          <h3>Lista de Livros ({{livros.length}})</h3>
-          <table class="table table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Ações</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Editora</th>
-                <th scope="col">Ano</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let livro of livros | paginate: { itemsPerPage: contadorLivro, currentPage: pagLivro }">
-                <td>
-                  <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>
-                  <button class="btn btn-primary" (click)="abrirDetalhesLivro(livro)">Editar</button>
-                </td>
-                <td>{{livro.dsLivro}}</td>
-                <td>{{livro.editora}}</td>
-                <td>{{livro.ano}}</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="text-right">
-            <pagination-controls (pageChange)="pagLivro = $event"></pagination-controls>
-          </div>
-        </div>
-        <div class="text-center mt-30">
-          <h1>Cadastrar Autor</h1>
-        </div>
-        <div class="mt-10">
-          <h6>Autor</h6>
-          <input class="form-control form-control-sm" type="text" placeholder="Nome do autor" [(ngModel)]="autor.nome"
-            name="Autor">
-        </div>
-        <div class="row mt-20">
-          <div class="col-3 col-md-1">
-            <input class="btn btn-dark" type="reset" value="Limpar">
-          </div>
-          <div class="col-3 col-md-1">
-            <button type="button" class="btn btn-success" (click)="saveAutor()">Salvar</button>
-          </div>
-          <div class="col-3 col-md-10">
-            <button class="btn btn-primary" (click)="mostrarListaAutor = !mostrarListaAutor">
-              {{mostrarListaAutor ? 'Mostrar Lista' : 'Ocultar Lista'}}
-            </button>
-          </div>
-        </div>
-        <div class="mt-20" *ngIf="!mostrarListaAutor">
-          <h3>Lista de Autores ({{autores.length}})</h3>
-          <table class="table table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Ações</th>
-                <th scope="col">Nome</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let autor of autores | paginate: { itemsPerPage: contadorAutor, currentPage: pagAutor }">
-                <td>
-                  <button class="btn btn-danger" (click)="deleteAutor(autor)">Excluir</button>
-                  <button class="btn btn-primary" (click)="abrirDetalhesAutor(autor)">Editar</button>
-                </td>
-                <td>{{autor.nome}}</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="text-right">
-            <pagination-controls (pageChange)="pagAutor = $event"></pagination-controls>
-          </div>
-        </div>
-        <div class="row mt-20">
-          <div class="col-md-3">
-            <button type="button" class="btn btn-primary" (click)="saveLivroAutor()">Conectar Livro e Autor</button>
-          </div>
-          <div class="col-md-9">
-            <button type="button" class="btn btn-danger">Desconectar Livro e Autor</button>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
