@@ -61,21 +61,17 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <h6>Usuário</h6>
-                                    <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário"
-                                        [(ngModel)]="usuario.nome" name="nomeUsuario">
+                                    <input class="form-control form-control-sm" type="text" placeholder="Nome do usuário" [(ngModel)]="usuario.nome" name="nomeUsuario">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <h6 class="mt-10">Login</h6>
-                                    <input type="text" class="form-control form-control-sm" name="login"
-                                        [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
+                                    <input type="text" class="form-control form-control-sm" name="login" [(ngModel)]="usuario.login" placeholder="Credencial para acessar o sistema">
                                 </div>
                                 <div class="col-md-4">
                                     <h6 class="mt-10">Senha</h6>
-                                    <input type="password" class="form-control form-control-sm" name="senha" id="senha"
-                                        [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
-
+                                    <input type="password" class="form-control form-control-sm" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="Credencial para acessar o sistema">
                                 </div>
                                 <div class="col-md-4">
                                     <input type="checkbox" class="mt-50" onclick="mostrarSenha()">
@@ -85,21 +81,20 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <h6 class="mt-10">Tipo de Usuário</h6>
-                                    <input type="radio" name="tipoUsuarioProfessor" placeholder=""
-                                        [(ngModel)]="usuario.tpUsuario" value="Professor">
+                                    <input type="radio" name="tipoUsuarioProfessor" [(ngModel)]="usuario.tpUsuario" value="Professor">
                                     <label for="Professor">&nbsp;Professor</label>
                                     &nbsp;
-                                    <input type="radio" name="tipoUsuarioNde" placeholder="" [(ngModel)]="usuario.tpUsuario"
+                                    <input type="radio" name="tipoUsuarioNde" [(ngModel)]="usuario.tpUsuario"
                                         value="ProfessorNDE">
                                     <label for="ProfessorNDE">&nbsp;Professor NDE</label>
                                 </div>
                                 <div class="col-md-6">
                                     <h6 class="mt-10">Status</h6>
-                                    <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status"
+                                    <input type="radio" name="status" [(ngModel)]="usuario.status"
                                         value="Ativo">
                                     <label for="Ativo">&nbsp;Ativo</label>
                                     &nbsp;
-                                    <input type="radio" name="status" placeholder="" [(ngModel)]="usuario.status"
+                                    <input type="radio" name="status" [(ngModel)]="usuario.status"
                                         value="Inativo">
                                     <label for="Inativo">&nbsp;Inativo</label>
                                 </div>
@@ -107,11 +102,11 @@
                         </div>
                     </div>
                     <div class="row mt-20">
-                        <div class="col-md-1 col-sm-1">
-                            <button type="button" class="btn btn-dark">Limpar</button>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
                         </div>
-                        <div class="col-md-1 col-sm-1 ml-10">
-                            <button type="button" class="btn btn-success" (click)="saveUsuario()">Salvar</button>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-success" (click)="saveUsuario()">Salvar/Atualizar</button>
                         </div>
                         <div class="col-md-2 col-sm-2 ml-5">
                             <button class="btn btn-primary" (click)="mostrarListaUsuario = !mostrarListaUsuario">
@@ -136,8 +131,8 @@
                                 <tr
                                     *ngFor="let usuario of usuarios | paginate: { itemsPerPage: contadorUsuario, currentPage: pagUsuario }">
                                     <td>
-                                        <button class="btn btn-primary"
-                                            (click)="abrirDetalhesUsuario(usuario)">Editar</button>
+                                        <<button class="btn btn-primary"
+                                        (click)="abrirDetalhesUsuario(usuario)">Selecionar/Editar</button>
                                     </td>
                                     <td>{{usuario.nome}}</td>
                                     <td>{{usuario.login}}</td>

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AutorModel } from './../../Models/AutorModel';
 import { AutorService } from './../../Services/Autor.service';
 import { LivroAutorService } from 'src/app/Services/LivroAutor.service';
+import { LivroAutorModel } from './../../Models/LivroAutorModel';
 @Component({
   selector: 'app-CadastroLivro',
   templateUrl: './CadastroLivro.component.html',
@@ -12,6 +13,7 @@ import { LivroAutorService } from 'src/app/Services/LivroAutor.service';
 export class CadastroLivroComponent implements OnInit {
   LivroModel: any;
   AutorModel: any;
+  LivroAutorModel: any;
   constructor(private livroService: LivroService,
     private autorService: AutorService,
     private livroAutorService: LivroAutorService) { }
@@ -37,6 +39,9 @@ export class CadastroLivroComponent implements OnInit {
   contadorAutor: number = 5;
   paginaAtualAutor: number = 1;
 
+  public livroAutores: LivroAutorModel[] = [];
+  public livroAutor = new LivroAutorModel;
+
   saveLivro() {
     if (this.livro.cdLivro) {
       this.putLivro();
@@ -55,7 +60,16 @@ export class CadastroLivroComponent implements OnInit {
 
   saveLivroAutor() {
     if (this.livro.cdLivro && this.autor.cdAutor) {
-      this.postLivroAutor();
+      if(confirm('Deseja realmente conectar Livro e Autor ?')){
+        alert('Livro e Autor conectados com sucesso!');
+        this.postLivroAutor();
+      }
+      else{
+        alert('Livro e Autor NÃO foram conectados!');
+      }
+    }
+    else{
+      alert('O Livro e/ou Autor NÃO foram encontrados!');
     }
   }
 
@@ -83,42 +97,69 @@ export class CadastroLivroComponent implements OnInit {
     this.livroAutorService.post(livroAutor).subscribe((resposta) => {
     }
     );
-    alert('Livro e Autor linkados com sucesso!');
   }
 
   putLivro() {
-    this.livroService.put(this.livro).subscribe((resposta) => {
-      this.livro = new LivroModel();
+    this.mostrarListaLivro = true;
+    if(confirm('Deseja realmente editar o livro ?')){
+      alert('O livro foi atualizado com sucesso!');
+      this.livroService.put(this.livro).subscribe((resposta) => {this.livro = new LivroModel();});
+      this.getLivros();
     }
-    );
-    alert('Livro editado com sucesso!');
-    this.getLivros();
+    else{
+      alert('O livro NÃO foi atualizado!');
+      this.getLivros();
+    }
   }
 
   putAutor() {
-    this.autorService.put(this.autor).subscribe((resposta) => {
-      this.autor = new AutorModel();
+    this.mostrarListaAutor = true;
+    if(confirm('Deseja realmente editar o autor ?')){
+      alert('O autor foi atualizado com sucesso!');
+      this.autorService.put(this.autor).subscribe((resposta) => {this.autor = new AutorModel();});
+      this.getAutores();
     }
-    );
-    alert('Autor editado com sucesso!');
-    this.getAutores();
+    else{
+      alert('O autor NÃO foi atualizado!');
+      this.getAutores();
+    }
   }
 
   deleteLivro(livro: LivroModel) {
-    this.livroService.delete(livro).subscribe((resposta) => {
+    this.mostrarListaLivro = true;
+    if(confirm('Deseja realmente excluir o livro ?')){
+      alert('O livro foi excluído com sucesso!');
+      this.livroService.delete(livro).subscribe((resposta) => {});
+      this.getLivros();
     }
-    );
-    alert('Livro deletado com sucesso!');
-    this.getLivros();
+    else{
+      alert('O livro NÃO foi excluído!');
+      this.getLivros();
+    }
   }
 
   deleteAutor(autor: AutorModel) {
-    this.autorService.delete(autor).subscribe((resposta) => {
+    this.mostrarListaAutor = true;
+    if(confirm('Deseja realmente excluir o autor ?')){
+      alert('O autor foi excluído com sucesso!');
+      this.autorService.delete(autor).subscribe((resposta) => {});
+      this.getAutores();
     }
-    );
-    alert('Autor deletado com sucesso!');
-    this.getAutores();
+    else{
+      alert('O autor NÃO foi excluído!');
+      this.getAutores();
+    }
   }
+
+  deleteLivroAutor(livro: LivroModel, autor: AutorModel) {
+    if(confirm('Deseja realmente desconectar o livro e autor?')){
+      alert('O livro e autor foram desconectados com sucesso!');
+      this.livroAutorService.delete(livro,autor).subscribe((resposta) => {});
+    }
+    else{
+      alert('O livro e autor NÃO foram desconectados!');
+    }
+   }
 
   getLivros() {
     this.livroService.getAll().subscribe(
@@ -127,7 +168,7 @@ export class CadastroLivroComponent implements OnInit {
         return this.livros;
       },
       (erro: any) => {
-        console.error('Não foi possível carregar os livros.');
+        alert('Não foi possível carregar os livros.');
       }
     );
   }

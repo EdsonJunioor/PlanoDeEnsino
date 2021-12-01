@@ -74,10 +74,10 @@
             </div>
             <div class="row mt-20">
               <div class="col-md-1 col-sm-1">
-                <button type="button" class="btn btn-dark">Limpar</button>
+                <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
               </div>
               <div class="col-md-1 col-sm-1 ml-10">
-                <button type="button" class="btn btn-success" (click)="saveCurso()">Salvar</button>
+                <button type="button" class="btn btn-success" (click)="saveCurso()">Salvar/Atualizar</button>
               </div>
               <div class="col-md-2 col-sm-2 ml-5">
                 <button class="btn btn-primary" (click)="mostrarListaCurso = !mostrarListaCurso">
@@ -98,8 +98,8 @@
                 <tbody>
                   <tr *ngFor="let curso of cursos | paginate: { itemsPerPage: contadorCurso, currentPage: pagCurso }">
                     <td>
-                      <button class="btn btn-danger" (click)="deleteCurso(curso)">Excluir</button>
-                      <button class="ml-5 btn btn-primary" (click)="abrirDetalhesCurso(curso)">Editar</button>
+                      <button class="btn btn-primary" (click)="abrirDetalhesCurso(curso)">Selecionar/Editar</button>
+                      <button class="ml-5 btn btn-danger" (click)="deleteCurso(curso)">Excluir</button>
                     </td>
                     <td>{{curso.dsCurso}}</td>
                     <td>{{curso.tpGraduacao}}</td>

@@ -57,28 +57,36 @@
               <div class="text-center mt-30">
                 <h1>Cadastrar Livro</h1>
               </div>
-              <div class="mt-10">
-                <h6>Livro</h6>
-                <input class="form-control form-control-sm" type="text" placeholder="Nome do livro"
-                  [(ngModel)]="livro.dsLivro" name="Livro">
-                <h6 class="mt-10">Editora</h6>
-                <input class="form-control form-control-sm" type="text" placeholder="Editora do livro"
-                  [(ngModel)]="livro.editora" name="Editora">
-                <h6 class="mt-10">Ano</h6>
-                <input class="form-control form-control-sm" type="number" placeholder="Ano de lançamento"
-                  [(ngModel)]="livro.ano" name="Ano">
+              <div class="row mt-10">
+                <div class="col-12">
+                  <h6>Livro</h6>
+                  <input class="form-control form-control-sm" type="text" placeholder="Nome do livro" [(ngModel)]="livro.dsLivro" name="Livro">
+                </div>
+              </div>
+              <div class="row mt-10">
+                <div class="col-12">
+                  <h6>Editora</h6>
+                  <input class="form-control form-control-sm" type="text" placeholder="Editora do livro" [(ngModel)]="livro.editora" name="Editora">
+                </div>
+              </div>
+              <div class="row mt-10">
+                <div class="col-2">
+                  <h6>Ano</h6>
+                  <input class="form-control form-control-sm" type="number" placeholder="Ano de lançamento" [(ngModel)]="livro.ano" name="Ano">
+                </div>
+                <div class="col-10"></div>
               </div>
             </div>
             <div class="row mt-20">
-              <div class="col-md-1 col-sm-1">
-                <button type="button" class="btn btn-dark">Limpar</button>
+              <div class="col-2">
+                <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
               </div>
-              <div class="col-md-1 col-sm-1 ml-10">
-                <button type="button" class="btn btn-success" (click)="saveLivro()">Salvar</button>
+              <div class="col-2">
+                <button type="button" class="btn btn-success" (click)="saveLivro()">Salvar/Atualizar</button>
               </div>
-              <div class="col-md-2 col-sm-2 ml-5">
+              <div class="col-2">
                 <button class="btn btn-primary" (click)="mostrarListaLivro = !mostrarListaLivro">
-                  {{mostrarListaLivro ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                  {{mostrarListaLivro ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
                 </button>
               </div>
             </div>
@@ -96,8 +104,9 @@
                 <tbody>
                   <tr *ngFor="let livro of livros | paginate: { itemsPerPage: contadorLivro, currentPage: pagLivro }">
                     <td>
+                      <button class="btn btn-primary" (click)="abrirDetalhesLivro(livro)">Selecionar/Editar</button>
+                      &nbsp;
                       <button class="btn btn-danger" (click)="deleteLivro(livro)">Excluir</button>
-                      <button class="ml-5 btn btn-primary" (click)="abrirDetalhesLivro(livro)">Editar</button>
                     </td>
                     <td>{{livro.dsLivro}}</td>
                     <td>{{livro.editora}}</td>
@@ -114,19 +123,18 @@
             </div>
             <div class="mt-10">
               <h6>Autor</h6>
-              <input class="form-control form-control-sm" type="text" placeholder="Nome do autor" [(ngModel)]="autor.nome"
-                name="Autor">
+              <input class="form-control form-control-sm" type="text" placeholder="Nome do autor" [(ngModel)]="autor.nome" name="Autor">
             </div>
             <div class="row mt-20">
-              <div class="col-md-1 col-sm-1">
-                <button type="button" class="btn btn-dark">Limpar</button>
+              <div class="col-2">
+                <button type="button" class="btn btn-dark" onClick="window.location.reload();">Limpar/Recarregar</button>
               </div>
-              <div class="col-md-1 col-sm-1 ml-10">
-                <button type="button" class="btn btn-success" (click)="saveAutor()">Salvar</button>
+              <div class="col-2">
+                <button type="button" class="btn btn-success" (click)="saveAutor()">Salvar/Atualizar</button>
               </div>
-              <div class="col-md-2 col-sm-2 ml-5">
+              <div class="col-md-8">
                 <button class="btn btn-primary" (click)="mostrarListaAutor = !mostrarListaAutor">
-                  {{mostrarListaAutor ? 'Mostrar Lista' : 'Ocultar Lista'}}
+                  {{mostrarListaAutor ? 'Mostrar Listagem' : 'Ocultar Listagem'}}
                 </button>
               </div>
             </div>
@@ -142,8 +150,9 @@
                 <tbody>
                   <tr *ngFor="let autor of autores | paginate: { itemsPerPage: contadorAutor, currentPage: pagAutor }">
                     <td>
+                      <button class="btn btn-primary" (click)="abrirDetalhesAutor(autor)">Selecionar/Editar</button>
+                      &nbsp;
                       <button class="btn btn-danger" (click)="deleteAutor(autor)">Excluir</button>
-                      <button class="ml-5 btn btn-primary" (click)="abrirDetalhesAutor(autor)">Editar</button>
                     </td>
                     <td>{{autor.nome}}</td>
                   </tr>
@@ -153,13 +162,14 @@
                 <pagination-controls (pageChange)="pagAutor = $event"></pagination-controls>
               </div>
             </div>
-            <div class="row mt-20">
-              <div class="col-md-3">
-                <button type="button" class="btn btn-primary" (click)="saveLivroAutor()">Conectar Livro e Autor</button>
+            <div class="row mt-30">
+              <div class="col-1">
+                <button type="button" class="btn btn-primary" (click)="saveLivroAutor()">Conectar</button>
               </div>
-              <div class="col-md-9">
-                <button type="button" class="btn btn-danger">Desconectar Livro e Autor</button>
+              <div class="col-1">
+                <button type="button" class="btn btn-danger" (click)="deleteLivroAutor(livro, autor)">Desconectar</button>
               </div>
+              <div class="col-10"></div>
             </div>
           </form>
         </div>

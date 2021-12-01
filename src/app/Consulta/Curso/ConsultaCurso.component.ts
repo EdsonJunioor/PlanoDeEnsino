@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { timingSafeEqual } from 'crypto';
 import { CursoModel } from './../../Models/CursoModel';
 import { CursoService } from './../../Services/Curso.service';
 
@@ -17,15 +18,38 @@ export class ConsultaCursoComponent implements OnInit {
 
   public cursos: CursoModel[] = [];
 
+  public cursosFiltrados: CursoModel[] = []
+  private _filtrar: string = ''
+
+  public get filtrar(): string {
+    return this._filtrar;
+  }
+
+  public set filtrar(value: string) {
+    this._filtrar = value;
+    this.cursosFiltrados = this.filtrar ? this.filtrarCursos(this.filtrar) : this.cursos;
+  }
+
+  filtrarCursos(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.cursos.filter(
+      curso => curso.dsCurso.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+    )
+  }
+
+
   getCursos() {
     this.cursoService.getAll().subscribe(
       (listaCursos: CursoModel[]) => {
         this.cursos = listaCursos;
-        return this.cursos;
+        this.cursosFiltrados = this.cursos;
       },
       (erro: any) => {
         console.error('Não foi possivel carregar os cursos.');
       }
     );
   }
+
+
+
 }

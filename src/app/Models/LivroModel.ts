@@ -3,4 +3,5 @@ export class LivroModel {
   dsLivro!: string;
   editora!: string;
   ano!: number;
+  nome!: string;
 }
