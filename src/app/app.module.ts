@@ -16,10 +16,11 @@ import { CadastroSugestaoComponent } from './Cadastro/Sugestao/CadastroSugestao.
 import { ConsultaLivroComponent } from './Consulta/Livro/ConsultaLivro.component';
 import { ConsultaCursoComponent } from './Consulta/Curso/ConsultaCurso.component';
 import { ConsultaUsuarioComponent } from './Consulta/Usuario/ConsultaUsuario.component';
+import { MenuComponent } from './Menu/Menu.component';
 import { HomeComponent } from './Home/Home.component';
 
 @NgModule({
-  declarations: [				    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
+  declarations: [					    //Declarar os componentes criados aqui para que possa ser usada as diretivas e chamadas para API
     AppComponent,
       LoginComponent,
       CadastroLivroComponent,
@@ -30,7 +31,8 @@ import { HomeComponent } from './Home/Home.component';
       ConsultaLivroComponent,
       ConsultaCursoComponent,
       ConsultaUsuarioComponent,
-      HomeComponent
+      HomeComponent,
+      MenuComponent
    ],
   imports: [
     BrowserModule,
